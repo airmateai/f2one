@@ -229,8 +229,8 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 .riel .hecho{position:absolute;left:3%;top:74px;height:2px;background:var(--oro);transform-origin:left;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
 .riel .anio{position:absolute;top:104px;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--gris2)}
 .riel .anio::before{content:'';position:absolute;left:50%;top:-24px;width:1px;height:12px;background:var(--linea2)}
-.riel .hoy{position:absolute;top:44px;transform:translateX(-50%);font-size:10px;font-weight:800;letter-spacing:.18em;color:var(--oro);text-transform:uppercase}
-.riel .hoy::after{content:'';position:absolute;left:50%;top:16px;width:2px;height:22px;background:var(--oro)}
+.riel .hoy{position:absolute;top:124px;transform:translateX(-50%);font-size:10px;font-weight:800;letter-spacing:.18em;color:var(--oro);text-transform:uppercase;white-space:nowrap}
+.riel .hoy::before{content:'';position:absolute;left:50%;top:-8px;transform:translateX(-50%);border:4px solid transparent;border-bottom-color:var(--oro)}
 .nodo{position:absolute;top:75px;transform:translate(-50%,-50%);width:34px;height:34px;display:grid;place-items:center;border:2px solid var(--blanco);border-radius:50%;background:#070707;color:var(--blanco);font:inherit;font-stretch:75%;font-weight:900;font-size:15px;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s,border-color .2s}
 .nodo:hover{transform:translate(-50%,-50%) scale(1.18)}
 .nodo.fut{border-style:dashed;border-color:var(--gris2);color:var(--gris2)}
@@ -627,11 +627,11 @@ $$('.js-capta').forEach(form=>form.addEventListener('submit',async e=>{
     btn.disabled=false; btn.textContent=txt;
   }
 }));
-/* Línea del tiempo: datos públicos (Sherdog, Diario de Avisos y carteles oficiales de @fight2one) */
+/* Línea del tiempo: fechas, pabellones y carteles sacados de las publicaciones oficiales de @fight2one */
 const VELADAS=[[1,'2023-03-18','Pancho Camurria'],[2,'2023-05-13','Pancho Camurria'],[3,'2023-09-30','Juan Ríos Tejera'],[4,'2023-11-18','Pancho Camurria'],
-  [5,'2024-03-16','Santiago Martín'],[6,'2024-06-01','Juan Ríos Tejera'],[7,null,''],[8,'2025-02-08','Juan Ríos Tejera'],[9,'2025-05-30','Santiago Martín'],
+  [5,'2024-03-16','Santiago Martín'],[6,'2024-06-02','Santiago Martín'],[7,'2024-10-19','Santiago Martín'],[8,'2025-02-08','Santiago Martín'],[9,'2025-05-30','Santiago Martín'],
   [10,'2025-09-27','Santiago Martín'],[11,'2026-05-23','Santiago Martín'],[12,'2026-10-17','Quico Cabrera'],[13,'2027-03-13','Santiago Martín'],[14,null,''],[15,null,''],[16,null,'']];
-const CARTELES={12:'img/cartel-12.webp',13:'img/cartel-13.webp'};
+const CARTELES=Object.fromEntries(Array.from({length:13},(_,k)=>[k+1,`img/cartel-${k+1}.webp`]));
 const T0=Date.UTC(2023,0,1), T1=Date.UTC(2028,0,1);
 const posDe=f=>3+94*(Date.parse(f)-T0)/(T1-T0);
 const posVel=v=>{ if(v[1]) return posDe(v[1]); if(v[0]===7) return (posDe('2024-06-01')+posDe('2025-02-08'))/2; return posDe('2027-03-13')+(v[0]-13)*4.5; };
