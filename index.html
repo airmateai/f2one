@@ -194,7 +194,8 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 @media(max-width:760px){.carril{gap:6px;padding:0 var(--g);scroll-padding:0 var(--g)}.carril figure,.carril figure.foto{height:auto;width:84vw;aspect-ratio:4/5;scroll-snap-align:center}}
 
 /* Línea del tiempo de todas las veladas */
-.vel{position:relative;isolation:isolate;overflow:hidden;min-height:440px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:clamp(28px,4vw,54px);background:#050505;border:1px solid var(--linea)}
+.vel{position:relative;isolation:isolate;overflow:hidden;min-height:440px;display:grid;grid-template-columns:1fr auto;grid-template-areas:'tx cartel' 'fl cartel';align-items:center;gap:22px 30px;padding:clamp(28px,4vw,54px);background:#050505;border:1px solid var(--linea)}
+.vel-tx{grid-area:tx}.vel-cartel{grid-area:cartel}
 .vel-fondo{position:absolute;inset:-30px;z-index:-1;background:center/cover no-repeat;filter:blur(26px) saturate(1.1) brightness(.35);transform:scale(1.1);transition:background-image .5s,opacity .5s}
 .vel-fondo.gris{filter:grayscale(1) brightness(.22) blur(2px)}
 /* Velada por anunciar: fondo y cartel diseñados, sin foto */
@@ -224,7 +225,7 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 .vel-cartel{width:clamp(180px,22vw,300px);aspect-ratio:4/5;background:center/cover no-repeat;box-shadow:0 30px 60px -20px #000;animation:velCartel .6s cubic-bezier(.2,.8,.2,1) both}
 .vel-cartel:empty{background:none;box-shadow:none}
 @keyframes velCartel{from{opacity:0;transform:translateX(30px) rotate(3deg)}to{opacity:1;transform:rotate(-2deg)}}
-.vel-flechas{position:absolute;right:16px;bottom:16px;display:flex;gap:6px}
+.vel-flechas{grid-area:fl;align-self:start;display:flex;gap:6px}
 .vel-flechas button{width:42px;height:42px;border:1px solid var(--linea2);background:rgba(0,0,0,.5);color:var(--blanco);font:inherit;font-size:18px;cursor:pointer;border-radius:2px}
 .vel-flechas button:hover{border-color:var(--blanco)}
 .vel-flechas button:disabled{opacity:.3;cursor:default}
@@ -245,7 +246,19 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 @keyframes onda{from{opacity:.9;transform:scale(.8)}to{opacity:0;transform:scale(1.5)}}
 .nodo[aria-selected=true]{transform:translate(-50%,-50%) scale(1.35);background:var(--oro);border-color:var(--oro);color:#000;border-style:solid}
 .nodo.alto{top:42px}.nodo.bajo{top:108px}
-@media(max-width:760px){.vel{grid-template-columns:1fr;min-height:0;padding-bottom:76px}.vel-cartel{display:block;order:-1;width:min(64vw,250px);margin:0 auto 8px;animation-name:velCartelM}
+@media(max-width:760px){
+  /* Móvil: cartel a la izquierda y datos a la derecha, compacto, con la línea del tiempo justo debajo */
+  .vel{grid-template-columns:40% 1fr;grid-template-areas:'cartel tx' 'cartel fl';align-items:start;gap:10px 14px;min-height:0;padding:14px}
+  .vel-cartel{display:block;width:100%;margin:0;animation-name:velCartelM;touch-action:pan-y}
+  .vel-tx .eti{font-size:10px}
+  .vel-num{font-size:64px;margin-top:2px}
+  .vel-fecha{font-size:16px;margin:8px 0 2px}
+  .vel-lugar{font-size:12.5px;line-height:1.35}
+  .vel-estado{margin-top:10px;padding:4px 8px;font-size:9.5px;letter-spacing:.1em}
+  .vel-tx .btn{margin-top:10px;min-height:38px;padding:0 14px;font-size:11px}
+  .vel-flechas{align-self:end}
+  .vel-flechas button{width:38px;height:38px}
+  .riel{height:128px}.riel::before,.riel .hecho{top:62px}.nodo{top:63px}.nodo.alto{top:30px}.riel .anio{top:90px}.riel .hoy{top:108px}
 @keyframes velCartelM{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}.vel-flechas{left:16px;right:auto}}
 /* Temporada */
 .temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
@@ -668,6 +681,9 @@ function verVelada(n,centrar){ VSEL=n; const v=VELADAS.find(x=>x[0]===n), t=TXV[
 }
 const pasoVel=d=>{ const k=VELADAS.findIndex(x=>x[0]===VSEL)+d; if(VELADAS[k]) verVelada(VELADAS[k][0],true); };
 $('#vel-ant').onclick=()=>pasoVel(-1); $('#vel-sig').onclick=()=>pasoVel(1);
+{ let x0=null,y0=0; const vel=$('#vel');
+  vel.addEventListener('touchstart',e=>{ x0=e.touches[0].clientX; y0=e.touches[0].clientY; },{passive:true});
+  vel.addEventListener('touchend',e=>{ if(x0==null) return; const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null; if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.3) pasoVel(dx<0?1:-1); },{passive:true}); }
 $('#riel').addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ pasoVel(1); e.preventDefault(); $(`#riel .nodo[data-n="${VSEL}"]`).focus(); } if(e.key==='ArrowLeft'){ pasoVel(-1); e.preventDefault(); $(`#riel .nodo[data-n="${VSEL}"]`).focus(); } });
 pintarRiel(); verVelada(13,true);
 
