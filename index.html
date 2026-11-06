@@ -44,8 +44,12 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--oro);outline-offset:3px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border:0;border-radius:2px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .15s,color .15s}
-.btn-oro{background:var(--oro);color:#000}
-.btn-oro:hover{background:#e6bb42}
+/* Dorado metálico con brillo: el botón que hay que pulsar */
+.btn-oro{position:relative;overflow:hidden;isolation:isolate;color:#1a1204;background:linear-gradient(180deg,#ffe58a 0%,#f5c94a 38%,#d4a72c 62%,#b8891a 100%);box-shadow:0 0 0 1px rgba(255,220,120,.55) inset,0 1px 0 rgba(255,255,255,.55) inset,0 0 22px rgba(232,180,48,.45),0 8px 26px -8px rgba(232,180,48,.65);text-shadow:0 1px 0 rgba(255,240,190,.5);transition:box-shadow .25s,transform .2s,filter .25s}
+.btn-oro::after{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:destello 3.6s ease-in-out infinite}
+@keyframes destello{0%,62%{left:-60%}100%{left:130%}}
+.btn-oro:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 0 0 1px rgba(255,230,140,.7) inset,0 1px 0 rgba(255,255,255,.6) inset,0 0 34px rgba(245,195,60,.7),0 12px 34px -8px rgba(245,195,60,.85)}
+.btn-oro:active{transform:translateY(0);filter:brightness(.97)}
 .btn-lin{background:transparent;color:var(--blanco);box-shadow:inset 0 0 0 1.5px var(--linea2)}
 .btn-lin:hover{box-shadow:inset 0 0 0 1.5px var(--blanco)}
 
@@ -620,6 +624,8 @@ $$('.js-capta').forEach(form=>form.addEventListener('submit',async e=>{
     const d=r.ok?await r.json():null;
     if(!d||!d.ok) throw new Error(d&&d.error||'http');
     guarda('f2o_lista','1'); navigator.vibrate&&navigator.vibrate(30);
+    // Bienvenida al momento (el motor solo la manda a altas de los últimos 10 minutos; si falla, la manda el envío automático)
+    fetch(SB_URL+'/functions/v1/f2o-envios',{method:'POST',headers:{'Content-Type':'application/json',apikey:SB_ANON,Authorization:'Bearer '+SB_ANON},body:JSON.stringify({ahora:true}),keepalive:true}).catch(()=>{});
     yaDentro();
   }catch(x){
     err.textContent=x.message==='email'?tx().malEmail:tx().fallo;
