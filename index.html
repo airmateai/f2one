@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <link rel="canonical" href="https://f2one.es/">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#000000">
 <title>Fight2One · Veladas de MMA, Muay Thai y K1 en Tenerife</title>
-<meta name="description" content="Fight2One, las veladas de MMA, Muay Thai y K1 de Tenerife. F2ONE 13 el 13 de marzo. Entra en la lista y te avisamos en cuanto salgan las entradas.">
+<meta name="description" content="Fight2One, las veladas de MMA, Muay Thai y K1 de Tenerife. F2ONE 13 el sábado 13 de marzo. Apúntate y te avisamos en cuanto salgan las entradas.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fight2One · Fight to be the number one">
-<meta property="og:description" content="Veladas de MMA, Muay Thai y K1 en Tenerife. F2ONE 13 el 13 de marzo. Entra en la lista y te avisamos de las entradas.">
+<meta property="og:title" content="Fight2One · F2ONE 13 · 13 de marzo">
+<meta property="og:description" content="Veladas de MMA, Muay Thai y K1 en Tenerife. Apúntate y te avisamos del cartel y de las entradas.">
 <meta property="og:image" content="https://f2one.es/img/cartel-12.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,465 +18,329 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
-<link rel="preload" as="image" href="vid/v1.webp">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="preload" as="image" href="img/amb-golpe.webp">
 <style>
-/* ── Fight2One · la web como la noche de la velada ──────────────
-   Negro, oro del logo, cuenta atrás y carteles de vídeo.
-   Archivo ancho (125) para gritar, estrecho (62) para cifras, normal para leer. */
+/* Fight2One · cartel de velada: fotos reales a sangre, tipografía condensada, esquinas rectas.
+   El dorado del logo solo en detalles; nada de brillos ni degradados en el texto. */
 :root{
-  --bg:#050505;--bg2:#0d0c0b;--bg3:#161412;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);
-  --ink:#f3f0e9;--ink2:#cfc9bd;--mut:#8f8a80;
-  --gold:#d4a72c;--gold2:#ffd863;--gold-deep:#5c4712;--rojo:#e3262f;
-  --ease:cubic-bezier(.2,.9,.2,1);
+  --negro:#000;--fondo:#0a0a0a;--fondo2:#121212;--linea:rgba(255,255,255,.12);--linea2:rgba(255,255,255,.24);
+  --blanco:#f5f5f2;--gris:#a3a3a0;--gris2:#6e6e6b;
+  --oro:#d4a72c;--rojo:#d7262e;
   --g:clamp(16px,4vw,48px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
+body{margin:0;background:var(--fondo);color:var(--blanco);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
 img,video{display:block;max-width:100%}
 a{color:inherit}
 [hidden]{display:none!important}
-.wrap{width:min(1240px,100% - var(--g)*2);margin-inline:auto}
-.ancho{font-stretch:125%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
-.estrecho{font-stretch:62%;font-weight:800}
-.oro{color:var(--gold)}
-.kick{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
-.kick::before{content:'';width:26px;height:2px;background:currentColor}
+.wrap{width:min(1280px,100% - var(--g)*2);margin-inline:auto}
+.cond{font-stretch:75%;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.005em}
+.eti{display:block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--oro)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--gold);color:#000;padding:10px 14px;border-radius:8px;font-weight:800}
+.skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--oro);color:#000;padding:10px 14px;font-weight:800}
 .skip:focus{left:8px}
-:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:inherit;font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s,background .2s}
-.btn-oro{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#140f02;box-shadow:0 10px 40px -10px rgba(212,167,44,.7)}
-.btn-oro:hover{transform:translateY(-2px);box-shadow:0 16px 50px -10px rgba(212,167,44,.9)}
-.btn-lin{background:rgba(255,255,255,.04);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line2)}
-.btn-lin:hover{box-shadow:inset 0 0 0 1.5px var(--gold)}
-.btn[aria-disabled=true]{opacity:.55;cursor:default}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border:0;border-radius:2px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .15s,color .15s}
+.btn-oro{background:var(--oro);color:#000}
+.btn-oro:hover{background:#e6bb42}
+.btn-lin{background:transparent;color:var(--blanco);box-shadow:inset 0 0 0 1.5px var(--linea2)}
+.btn-lin:hover{box-shadow:inset 0 0 0 1.5px var(--blanco)}
 
-.flash{position:fixed;inset:0;z-index:99;pointer-events:none;background:radial-gradient(circle at 50% 45%,rgba(255,236,170,.9),rgba(212,167,44,.25) 40%,transparent 70%);opacity:0}
-.flash.on{animation:flash 1.2s ease-out}
-@keyframes flash{0%{opacity:0}15%{opacity:1}100%{opacity:0}}
-
-
-/* ── Navegación ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 0;transition:background .3s,backdrop-filter .3s}
-.nav.solid{background:rgba(5,5,5,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:18px}
+/* Navegación */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .25s}
+.nav.solid{background:#000;border-bottom:1px solid var(--linea)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:68px}
 .marca{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
-.marca img{width:38px;height:38px;border-radius:9px}
-.marca b{font-stretch:125%;font-weight:900;letter-spacing:.04em}
-.nav nav a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:700;margin-left:22px}
-.nav nav a:hover{color:var(--gold)}
-.nav .btn{min-height:42px;padding:0 18px;font-size:13px}
+.marca img{width:34px;height:34px}
+.marca b{font-stretch:75%;font-weight:900;font-size:20px;letter-spacing:.06em}
+.nav nav a{color:var(--gris);text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-left:24px}
+.nav nav a:hover{color:var(--blanco)}
+.nav .btn{min-height:40px;padding:0 18px;font-size:12px}
 @media(max-width:900px){.nav nav{display:none}}
-@media(max-width:760px){.nav .btn{display:none}}
+@media(max-width:600px){.nav .btn{display:none}}
 
-/* ── 1 · Héroe: cartel de velada con cuenta atrás ── */
-.heroe{position:relative;min-height:100svh;display:flex;align-items:center;padding:110px 0 calc(70px + env(safe-area-inset-bottom));overflow:hidden;isolation:isolate;background:#050505}
-.heroe-fondo{position:absolute;inset:0;z-index:-3;background:url(img/amb-jaula.webp) center/cover;opacity:.18;filter:grayscale(.6) contrast(1.2);transform:scale(1.05)}
-.heroe::before{content:'';position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse 60% 70% at 78% 45%,rgba(212,167,44,.28),transparent 65%),radial-gradient(ellipse 40% 50% at 10% 100%,rgba(227,38,47,.16),transparent 70%),linear-gradient(90deg,#050505 0,rgba(5,5,5,.85) 40%,rgba(5,5,5,.3) 100%)}
-.heroe::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.heroe-g{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(24px,4vw,64px);align-items:center}
-.heroe h2{font-size:clamp(34px,4.6vw,86px);margin:20px 0 0}
-.heroe h2 span{display:block;white-space:nowrap}
-.heroe h2 .oro{background:linear-gradient(180deg,var(--gold2),var(--gold) 60%,#8a6a14);-webkit-background-clip:text;background-clip:text;color:transparent}
-.heroe .lead{max-width:540px;color:var(--ink2);font-size:clamp(16px,1.4vw,19px);margin:20px 0 26px}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.chip-prox{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(227,38,47,.12);box-shadow:inset 0 0 0 1px rgba(227,38,47,.45);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#ffd5d5}
-.chip-prox i{width:9px;height:9px;border-radius:50%;background:var(--rojo);box-shadow:0 0 12px var(--rojo);animation:lat 1.2s infinite}
-@keyframes lat{50%{opacity:.35}}
-/* Reloj de combate */
-.reloj{display:flex;gap:clamp(6px,1vw,12px);margin:0 0 26px}
-.reloj div{flex:0 1 112px;min-width:0;padding:12px 6px 10px;border-radius:14px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px rgba(212,167,44,.35),inset 0 -18px 30px -20px rgba(212,167,44,.4)}
-.reloj b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(38px,4.6vw,66px);line-height:.95;color:var(--ink);font-variant-numeric:tabular-nums}
-.reloj div:first-child b{color:var(--gold2)}
-.reloj small{display:block;margin-top:6px;font-size:10.5px;font-weight:800;letter-spacing:.26em;color:var(--mut);text-transform:uppercase}
-.reloj-tit{display:flex;align-items:baseline;gap:12px;margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
-.reloj-tit b{color:var(--gold);letter-spacing:.24em}
-/* Carteles de vídeo */
-.carteles{position:relative;height:min(78svh,700px);display:flex;justify-content:center;align-items:center}
-.cv{position:absolute;width:64%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 40px 80px -30px #000,inset 0 0 0 1px rgba(255,255,255,.08);transition:transform 1.2s var(--ease)}
-.cv img,.cv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
-.cv::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.65),transparent 45%);pointer-events:none}
-.cv span{position:absolute;z-index:2;left:14px;bottom:12px;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.02em}
-.cv.c1{transform:translateX(-48%) rotate(-7deg) scale(.86);filter:brightness(.7)}
-.cv.c3{transform:translateX(48%) rotate(7deg) scale(.86);filter:brightness(.7)}
-.cv.c2{z-index:2;width:76%;box-shadow:0 50px 100px -30px #000,0 0 0 2px var(--gold),0 0 60px -10px rgba(212,167,44,.6)}
-.cv.c2 em{position:absolute;z-index:2;top:12px;left:12px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:6px;background:var(--rojo);color:#fff;font-style:normal;font-size:11px;font-weight:900;letter-spacing:.14em}
-.cv.c2 em::before{content:'';width:7px;height:7px;border-radius:50%;background:#fff;animation:lat 1.2s infinite}
-.baja{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:var(--mut);text-transform:uppercase;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:8px}
-.baja::after{content:'';width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:baja 1.8s infinite}
-@keyframes baja{from{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}to{transform:scaleY(0);transform-origin:bottom}}
-/* Móvil: el vídeo central a pantalla completa detrás del texto */
+/* Héroe */
+.heroe{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 clamp(40px,7vh,80px);isolation:isolate;background:#000}
+.heroe-media{position:absolute;inset:0;z-index:-1}
+.heroe-media img,.heroe-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.heroe-media img{object-position:50% 30%}
+.heroe-media video{display:none}
+.heroe-media::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#000 0,rgba(0,0,0,.75) 35%,rgba(0,0,0,.15) 70%,rgba(0,0,0,.45) 100%),linear-gradient(90deg,rgba(0,0,0,.7),transparent 60%)}
+.heroe h1{margin:14px 0 0;font-size:clamp(84px,15vw,230px)}
+.heroe h1 span{color:var(--oro)}
+.fecha{display:flex;flex-wrap:wrap;gap:6px 22px;margin:18px 0 0;font-stretch:75%;font-weight:800;font-size:clamp(20px,2.4vw,30px);text-transform:uppercase;letter-spacing:.02em}
+.fecha span+span{color:var(--gris)}
+.heroe-pie{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-top:clamp(28px,4vw,44px);padding-top:clamp(22px,3vw,32px);border-top:1px solid var(--linea2)}
+.reloj{display:flex;gap:clamp(14px,2vw,28px)}
+.reloj div{min-width:0}
+.reloj b{display:block;font-stretch:75%;font-weight:900;font-size:clamp(34px,4vw,54px);line-height:1;font-variant-numeric:tabular-nums}
+.reloj small{display:block;margin-top:4px;font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--gris);text-transform:uppercase}
+.reloj-tit{margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.alta{max-width:560px;justify-self:end;width:100%}
+.alta p.tit{margin:0 0 10px;font-size:15px;font-weight:700}
 @media(max-width:900px){
-  .heroe{align-items:flex-end}
-  .heroe-g{grid-template-columns:1fr}
-  .carteles{position:absolute;inset:0;height:auto;z-index:-2}
-  .cv.c1,.cv.c3{display:none}
-  .cv.c2{inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none;transform:none}
-  .cv.c2 span{display:none}
-  .cv.c2::after{background:linear-gradient(0deg,#050505 32%,rgba(5,5,5,.55) 62%,rgba(5,5,5,.35))}
-  .heroe::before{background:radial-gradient(ellipse 80% 40% at 50% 100%,rgba(212,167,44,.18),transparent 70%)}
-  .heroe-fondo{display:none}
-  .baja{display:none}
-  .reloj div{flex:1}
-  .heroe-g>div{min-width:0}
-  .heroe h2{font-size:clamp(38px,11.5vw,72px)}
-  .heroe h2 span{white-space:normal}
-  .cv.c2 em{display:none}
+  .heroe-media img{display:none}
+  .heroe-media video{display:block}
+  .heroe-media::after{background:linear-gradient(0deg,#000 0,rgba(0,0,0,.8) 45%,rgba(0,0,0,.2) 75%,rgba(0,0,0,.5) 100%)}
+  .heroe-pie{grid-template-columns:1fr}
+  .alta{justify-self:stretch}
 }
 
-/* ── 2 · El paseíllo (scroll) ── */
-.paseo{position:relative;height:500vh;background:#000}
-.paseo-fijo{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;place-items:center}
-.paseo-fondo i{position:absolute;inset:-4%;background:center/cover no-repeat;opacity:0;transform:scale(1.08);transition:opacity 1s,transform 6s linear;filter:grayscale(.3) contrast(1.1)}
-.paseo-fondo i.on{opacity:.5;transform:scale(1)}
-.paseo-fijo::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.1),rgba(0,0,0,.85) 70%)}
-.frase{position:absolute;z-index:2;width:min(1100px,100% - var(--g)*2);text-align:center;font-size:clamp(40px,8.6vw,128px);opacity:0;transform:translateY(40px) scale(.96);transition:opacity .6s,transform .8s var(--ease)}
-.frase.on{opacity:1;transform:none}
-.frase.ultima{font-size:clamp(38px,7.6vw,120px)}
-.frase.ultima img{width:clamp(70px,9vw,120px);height:auto;margin:0 auto 18px;border-radius:18px}
-.asaltos{position:absolute;z-index:3;top:calc(84px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);display:flex;gap:8px}
-.asaltos span{width:42px;height:4px;border-radius:4px;background:rgba(255,255,255,.15);overflow:hidden}
-.asaltos span i{display:block;height:100%;width:0;background:var(--gold)}
-.asalto-tx{position:absolute;z-index:3;top:calc(98px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;font-weight:800;color:var(--mut)}
-.sin-mov .paseo{height:auto}
-.sin-mov .paseo-fijo{position:relative;height:auto;padding:100px 0;display:flex;flex-direction:column;gap:30px}
-.sin-mov .frase{position:relative;opacity:1;transform:none}
+/* Formulario de alta (héroe, La Grada) */
+.capta{display:flex}
+.capta input{flex:1;min-width:0;min-height:54px;padding:0 16px;border:1.5px solid var(--linea2);border-right:0;border-radius:2px 0 0 2px;background:rgba(0,0,0,.6);color:var(--blanco);font:inherit;font-size:16px}
+.capta input::placeholder{color:var(--gris2)}
+.capta input:focus{outline:none;border-color:var(--oro)}
+.capta .btn{flex:none;min-height:54px;border-radius:0 2px 2px 0}
+@media(max-width:520px){.capta{flex-direction:column;gap:8px}.capta input{border-right:1.5px solid var(--linea2);border-radius:2px}.capta .btn{border-radius:2px;width:100%}}
+.micro{font-size:12.5px;color:var(--gris);margin:10px 0 0;line-height:1.45}
+.capta-err{color:#ff8a8a;font-size:14px;margin:10px 0 0}
+.capta-err:empty{display:none}
+.capta-ok{padding:16px 18px;border-left:3px solid var(--oro);background:rgba(0,0,0,.6);font-weight:800}
+.capta-ok span{display:block;font-size:14px;font-weight:500;color:var(--gris);margin-top:4px}
+
+/* Cifras */
+.cifras{background:#000;border-bottom:1px solid var(--linea)}
+.cifras ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.cifras li{padding:clamp(26px,4vw,44px) clamp(12px,2vw,28px);border-left:1px solid var(--linea)}
+.cifras li:first-child{border-left:0;padding-left:0}
+.cifras b{display:block;font-stretch:75%;font-weight:900;font-size:clamp(48px,6vw,84px);line-height:.9}
+.cifras span{display:block;margin-top:8px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+@media(max-width:760px){.cifras ul{grid-template-columns:1fr 1fr}.cifras li{padding-left:16px}.cifras li:nth-child(odd){border-left:0;padding-left:0}.cifras li:nth-child(n+3){border-top:1px solid var(--linea)}}
 
 /* Secciones */
-section.sec{padding:clamp(80px,12vw,150px) 0;position:relative}
-.cab{max-width:760px;margin-bottom:clamp(36px,5vw,64px)}
-.cab h2{font-size:clamp(40px,7vw,96px);margin:16px 0 0}
-.cab p{color:var(--ink2);margin:18px 0 0;font-size:18px}
-.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .9s var(--ease)}
-.rv.in{opacity:1;transform:none}
-html:not(.js) .rv{opacity:1;transform:none}
+section.sec{padding:clamp(72px,10vw,130px) 0}
+.cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:clamp(30px,4vw,52px)}
+.cab h2{margin:10px 0 0;font-size:clamp(46px,7vw,104px)}
+.cab p{max-width:420px;margin:0;color:var(--gris)}
 
-/* ── 3 · Próxima velada ── */
-.prox{background:radial-gradient(ellipse at 80% 50%,rgba(212,167,44,.12),transparent 60%),var(--bg)}
-.prox-g{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:center}
-@media(max-width:860px){.prox-g{grid-template-columns:1fr}}
-.trece{position:relative;font-size:clamp(200px,34vw,460px);line-height:.8;text-align:center;font-stretch:62%;font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(212,167,44,.75);text-shadow:0 0 120px rgba(212,167,44,.25)}
-.trece::after{content:'13';position:absolute;inset:0;color:var(--gold);clip-path:inset(var(--lleno,100%) 0 0 0);transition:clip-path 1.6s var(--ease)}
-.trece.in::after{--lleno:0%}
-.trece small{display:block;font-size:13px;letter-spacing:.4em;-webkit-text-stroke:0;color:var(--mut);font-stretch:100%;font-weight:800;margin-top:14px;text-transform:uppercase}
-.ficha{list-style:none;padding:0;margin:28px 0 32px;border-top:1px solid var(--line)}
-.ficha li{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
-.ficha span{color:var(--mut)}
+/* Próxima velada */
+.prox{display:grid;grid-template-columns:1fr 1fr;min-height:620px;background:var(--fondo2)}
+.prox-foto{position:relative;overflow:hidden}
+.prox-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prox-tx{padding:clamp(40px,6vw,90px) var(--g);display:flex;flex-direction:column;justify-content:center}
+.prox-tx h2{margin:10px 0 18px;font-size:clamp(56px,8vw,120px)}
+.prox-tx>p{color:var(--gris);max-width:460px;margin:0}
+.ficha{list-style:none;padding:0;margin:30px 0 34px;max-width:480px;border-top:1px solid var(--linea)}
+.ficha li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--linea);font-weight:700}
+.ficha span{color:var(--gris);font-weight:500}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:860px){.prox{grid-template-columns:1fr}.prox-foto{min-height:300px}}
 
-/* ── 4 · Cara a cara ── */
-.cartel{display:flex;flex-direction:column;gap:14px}
-.pelea{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(8px,2vw,24px);padding:clamp(14px,2.4vw,22px);border-radius:20px;background:linear-gradient(90deg,rgba(255,255,255,.035),rgba(255,255,255,.01) 50%,rgba(255,255,255,.035));box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
-.esq{display:flex;align-items:center;gap:clamp(10px,1.6vw,18px);min-width:0;opacity:0;transition:opacity .6s,transform .9s var(--ease),filter .6s}
-.esq.a{transform:translateX(-40%)}
-.esq.b{transform:translateX(40%);flex-direction:row-reverse;text-align:right}
-.pelea.in .esq{opacity:1;transform:none}
-.hx{flex:none;width:clamp(52px,7vw,84px);height:auto;aspect-ratio:1;border-radius:16px;object-fit:cover;object-position:50% 20%;background:linear-gradient(135deg,var(--bg3),#25211b);display:grid;place-items:center;font-stretch:62%;font-weight:900;font-size:22px;color:var(--mut)}
-.esq b{display:block;font-stretch:112%;font-weight:900;font-size:clamp(14px,1.9vw,22px);text-transform:uppercase;line-height:1.05;overflow-wrap:break-word}
-.esq small{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:12px;font-weight:700;letter-spacing:.1em;margin-top:4px}
+/* Cartel F2ONE 12 */
+.cartel{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
+.pelea{display:grid;grid-template-columns:1fr 150px 1fr;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--linea)}
+.esq{display:flex;align-items:center;gap:16px;min-width:0}
+.esq.b{flex-direction:row-reverse;text-align:right}
+.hx{flex:none;width:64px;height:64px;object-fit:cover;object-position:50% 20%;background:var(--fondo2);display:grid;place-items:center;font-stretch:75%;font-weight:900;font-size:20px;color:var(--gris2)}
+.esq b{display:block;font-stretch:75%;font-weight:900;font-size:clamp(18px,2vw,26px);text-transform:uppercase;line-height:1.05;overflow-wrap:break-word}
+.esq small{display:flex;gap:8px;align-items:center;color:var(--gris);font-size:12px;font-weight:700;letter-spacing:.1em;margin-top:4px}
 .esq.b small{justify-content:flex-end}
-.gana{color:#140f02;background:var(--gold);padding:2px 7px;border-radius:5px;letter-spacing:.08em;font-size:10px}
-.pelea.in .esq.pierde{filter:grayscale(1) brightness(.6)}
-.mid{text-align:center;min-width:clamp(60px,10vw,120px)}
-.mid b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(28px,4vw,46px);line-height:1;color:var(--gold);transform:scale(2.4);opacity:0;transition:transform .5s var(--ease) .45s,opacity .3s .45s}
-.pelea.in .mid b{transform:none;opacity:1}
-.mid small{display:block;font-size:11px;letter-spacing:.2em;color:var(--mut);font-weight:800;margin-top:4px}
-.mid em{display:block;font-style:normal;font-size:11px;color:var(--gold);font-weight:700;margin-top:4px;line-height:1.3}
-.pelea::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,216,99,.4),transparent 45%);opacity:0;pointer-events:none}
-.pelea.in::before{animation:choque .9s ease-out .45s}
-@keyframes choque{20%{opacity:1}100%{opacity:0}}
-.pelea.estelar{padding:clamp(20px,4vw,40px);background:radial-gradient(ellipse at 50% 0,rgba(212,167,44,.18),transparent 70%),linear-gradient(180deg,#14110b,#0b0a08);box-shadow:inset 0 0 0 1px rgba(212,167,44,.45)}
-.pelea.estelar .hx{width:clamp(70px,12vw,150px)}
-.pelea.estelar .esq b{font-size:clamp(18px,3vw,38px)}
-.tag-est{position:absolute;top:12px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;font-weight:800;color:var(--gold);white-space:nowrap}
-@media(max-width:560px){.esq b,.pelea.estelar .esq b{font-size:14px;font-stretch:100%}.pelea.estelar .esq b{font-size:17px}.esq{flex-direction:column;align-items:flex-start}.esq.b{flex-direction:column;align-items:flex-end}.mid{min-width:44px}}
-.nota-pub{color:var(--mut);font-size:13px;margin-top:18px}
+.esq.pierde{opacity:.45}
+.gana{color:#000;background:var(--oro);padding:1px 6px;font-size:10px;letter-spacing:.08em;font-weight:900}
+.mid{text-align:center}
+.mid b{display:block;font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--gris)}
+.mid em{display:block;font-style:normal;font-size:12px;color:var(--oro);font-weight:700;margin-top:4px;line-height:1.3}
+.pelea.estelar{padding:30px 0}
+.pelea.estelar .hx{width:110px;height:110px}
+.pelea.estelar .esq b{font-size:clamp(24px,3.2vw,44px)}
+@media(max-width:620px){.pelea{grid-template-columns:1fr 64px 1fr;gap:8px}.esq,.esq.b{flex-direction:column;align-items:flex-start;gap:8px}.esq.b{align-items:flex-end}.hx{width:52px;height:52px}.pelea.estelar .hx{width:72px;height:72px}.esq b,.pelea.estelar .esq b{font-size:17px}.mid em{font-size:10.5px}}
+.nota-pub{color:var(--gris2);font-size:13px;margin-top:16px}
 
-/* ── 5 · Grand Prix ── */
-.gp{background:linear-gradient(180deg,var(--bg),#0b0906 40%,var(--bg))}
-.gp-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
-@media(max-width:860px){.gp-g{grid-template-columns:1fr}}
-.campeon{position:relative;margin:0;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:#000}
+/* Grand Prix */
+.gp{display:grid;grid-template-columns:5fr 7fr;gap:clamp(30px,5vw,80px);align-items:center}
+.campeon{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:#000}
 .campeon img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.campeon::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#000 5%,transparent 55%)}
-.campeon figcaption{position:absolute;z-index:2;left:24px;right:24px;bottom:22px}
-.campeon figcaption b{display:block;font-size:clamp(36px,5vw,64px);margin-top:10px}
-.llaves{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
-.semis{display:flex;flex-direction:column;gap:14px}
-.llave{border-radius:14px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
-.llave small{display:block;padding:8px 14px;font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--mut);background:rgba(255,255,255,.03);text-transform:uppercase}
-.llave div{padding:10px 14px;font-weight:800;font-size:14px;color:var(--mut);border-top:1px solid var(--line)}
-.llave div.g{color:var(--ink);background:linear-gradient(90deg,rgba(212,167,44,.22),transparent)}
-.llave.final{box-shadow:inset 0 0 0 1.5px var(--gold)}
-.llave.final div.g{font-size:17px}
+.campeon figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 20px;background:linear-gradient(0deg,#000,transparent)}
+.campeon figcaption b{display:block;font-size:clamp(34px,4vw,56px);margin-top:6px}
+.llaves{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;margin-top:28px}
+.semis{display:grid;gap:12px}
+.llave{border:1px solid var(--linea)}
+.llave small{display:block;padding:7px 12px;font-size:11px;letter-spacing:.16em;font-weight:800;color:var(--gris);text-transform:uppercase;border-bottom:1px solid var(--linea)}
+.llave div{padding:9px 12px;font-weight:700;font-size:14px;color:var(--gris)}
+.llave div+div{border-top:1px solid var(--linea)}
+.llave div.g{color:var(--blanco);font-weight:900}
+.llave div.g::before{content:'';display:inline-block;width:3px;height:12px;margin-right:9px;background:var(--oro);vertical-align:-1px}
+.llave.final{border-color:var(--oro)}
+@media(max-width:860px){.gp{grid-template-columns:1fr}}
 
-/* ── 6 · Momentos ── */
-.carril{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--g) 18px;margin:0 calc(var(--g)*-1);scrollbar-width:none}
+/* Momentos */
+.carril{display:flex;gap:4px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .carril::-webkit-scrollbar{display:none}
-.carril figure{position:relative;flex:none;width:min(300px,72vw);aspect-ratio:9/16;margin:0;border-radius:22px;overflow:hidden;scroll-snap-align:center;background:#111}
-.carril img,.carril video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}
-.carril figcaption{position:absolute;left:16px;bottom:16px;right:16px;z-index:2;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:20px;text-shadow:0 2px 20px #000}
-.carril figure::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent 40%)}
-.carril figure.foto{width:min(520px,86vw);aspect-ratio:4/5}
+.carril figure{position:relative;flex:none;height:min(70svh,560px);aspect-ratio:9/16;margin:0;overflow:hidden;scroll-snap-align:start;background:#111}
+.carril figure.foto{aspect-ratio:3/2}
+.carril img,.carril video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-/* ── 7 · Temporada ── */
-.temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:t}
-@media(max-width:900px){.temporada{grid-template-columns:1fr 1fr}.temporada li:first-child{grid-column:1/-1}}
-.temporada li{position:relative;padding:22px 18px;border-radius:18px;box-shadow:inset 0 0 0 1px var(--line);min-height:150px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,.02)}
-.temporada li b{font-stretch:62%;font-weight:900;font-size:64px;line-height:.9;color:transparent;-webkit-text-stroke:1.5px var(--line2)}
-.temporada li span{font-size:13px;color:var(--mut);font-weight:700}
-.temporada li.ya{box-shadow:inset 0 0 0 1.5px var(--gold);background:linear-gradient(180deg,rgba(212,167,44,.14),transparent)}
-.temporada li.ya b{-webkit-text-stroke:0;color:var(--gold)}
-.temporada li.ya span{color:var(--ink)}
+/* Temporada */
+.temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
+.temporada li{padding:22px 18px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.temporada li b{font-stretch:75%;font-weight:900;font-size:56px;line-height:.9;color:var(--gris2)}
+.temporada li span{font-size:13px;color:var(--gris);font-weight:700}
+.temporada li.ya b{color:var(--blanco)}
+.temporada li.prox b{color:var(--oro)}
+.temporada li.prox span{color:var(--blanco)}
+@media(max-width:760px){.temporada{grid-template-columns:1fr 1fr}.temporada li:first-child{grid-column:1/-1}}
 
-/* ── 8 · La lista ── */
-.lista{position:relative;overflow:hidden;background:#000}
-.lista::before{content:'';position:absolute;inset:0;background:url(img/amb-jaula.webp) center/cover;opacity:.22;filter:grayscale(.4)}
-.lista::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(212,167,44,.18),transparent 55%),linear-gradient(90deg,#000 20%,rgba(0,0,0,.6))}
-.lista .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
-@media(max-width:860px){.lista .wrap{grid-template-columns:1fr}}
-.lista h2{font-size:clamp(44px,7.4vw,110px);margin:16px 0 0}
-.ventajas{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px}
-.ventajas li{display:flex;gap:14px;align-items:flex-start;color:var(--ink2)}
-.ventajas li b{color:var(--ink)}
-.ventajas li::before{content:'';flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23140f02' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
-.form{padding:clamp(22px,3vw,36px);border-radius:24px;background:rgba(14,13,11,.9);box-shadow:inset 0 0 0 1px rgba(212,167,44,.35),0 30px 80px -30px rgba(212,167,44,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.form label{display:block;font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--ink2);margin:0 0 8px}
-.form input[type=email],.form input[type=text]{width:100%;min-height:56px;padding:0 18px;border-radius:14px;border:1.5px solid var(--line2);background:#0a0908;color:var(--ink);font:inherit;font-size:17px;margin-bottom:16px}
-.form input:focus{outline:none;border-color:var(--gold)}
-.consent{display:none;gap:12px;align-items:flex-start;font-size:13px;color:var(--mut);margin:4px 0 20px;line-height:1.45;cursor:pointer}
-.consent input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:var(--gold)}
-.form .btn{width:100%}
-.form .error{color:#ff8a8a;font-size:14px;margin:12px 0 0;min-height:1em}
-.dentro{text-align:center;padding:20px 0}
-.dentro b{display:block;font-size:clamp(36px,5vw,58px)}
-.dentro p{color:var(--ink2);margin:12px 0 0}
+/* La Grada */
+.grada{position:relative;isolation:isolate;background:#000}
+.grada>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.35}
+.grada .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.grada h2{margin:10px 0 0;font-size:clamp(50px,7.4vw,110px)}
+.grada .wrap>div>p{color:var(--gris);font-size:18px;margin:16px 0 0;max-width:460px}
+.ventajas{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:10px;max-width:460px}
+.ventajas li{padding-left:18px;border-left:2px solid var(--oro);color:var(--gris)}
+.ventajas li b{color:var(--blanco)}
+.caja{padding:clamp(22px,3vw,36px);background:#0a0a0a;border:1px solid var(--linea2)}
+.caja label{display:block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin:0 0 10px}
+.dentro b{display:block;font-size:clamp(34px,4.6vw,54px)}
+.dentro p{color:var(--gris);margin:10px 0 18px}
+@media(max-width:860px){.grada .wrap{grid-template-columns:1fr}}
 
-/* ── 9 · Patrocina / pelea ── */
-.dos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+/* Patrocina / pelea */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.panel{position:relative;overflow:hidden;min-height:480px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.panel::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#000 25%,rgba(0,0,0,.25))}
+.panel h3{font-size:clamp(38px,4.6vw,64px);margin:10px 0 12px}
+.panel p{color:var(--gris);margin:0 0 22px;max-width:440px}
 @media(max-width:860px){.dos{grid-template-columns:1fr}}
-.panel{position:relative;overflow:hidden;border-radius:24px;padding:clamp(26px,4vw,44px);min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:inset 0 0 0 1px var(--line);isolation:isolate}
-.panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
-.panel:hover>img{transform:scale(1.05)}
-.panel::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#000 30%,rgba(0,0,0,.35))}
-.panel h3{font-size:clamp(34px,4.4vw,58px);margin:14px 0}
-.panel p{color:var(--ink2);margin:0 0 22px;max-width:440px}
 
-footer{padding:50px 0 calc(110px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+footer{padding:44px 0 calc(100px + env(safe-area-inset-bottom));border-top:1px solid var(--linea);color:var(--gris);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
-footer nav a{margin-left:18px;text-decoration:none;color:var(--ink2)}
+footer nav a{margin-left:18px;text-decoration:none;color:var(--blanco)}
 footer nav a:first-child{margin-left:0}
+footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform:uppercase;font-size:clamp(28px,5vw,64px);color:var(--blanco);line-height:.95}
 
-/* Barra fija (móvil) e invitación */
-.barra{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:none;gap:8px;padding:8px;border-radius:999px;background:rgba(12,11,9,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--line2),0 20px 40px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .5s var(--ease)}
+/* Barra fija en el móvil */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:#000;border-top:1px solid var(--linea2);transform:translateY(100%);transition:transform .3s}
 .barra.on{transform:none}
-.barra .btn{flex:1;min-height:46px;padding:0 12px;font-size:13px}
-@media(max-width:760px){.barra{display:flex}}
-.invita{position:fixed;right:20px;bottom:20px;z-index:70;width:min(360px,calc(100% - 24px));padding:22px;border-radius:22px;background:#0e0d0b;box-shadow:inset 0 0 0 1px rgba(212,167,44,.5),0 30px 60px rgba(0,0,0,.7);transform:translateY(130%);opacity:0;transition:transform .6s var(--ease),opacity .4s}
-.invita.on{transform:none;opacity:1}
-/* Captación: email en un paso */
-.capta{display:flex;gap:8px;max-width:520px;padding:6px;border-radius:999px;background:rgba(10,9,8,.82);box-shadow:inset 0 0 0 1.5px rgba(212,167,44,.55),0 20px 50px -20px rgba(212,167,44,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.capta input{flex:1;min-width:0;min-height:52px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-size:16px}
-.capta input:focus{outline:none}
-.capta:focus-within{box-shadow:inset 0 0 0 2px var(--gold),0 20px 60px -16px rgba(212,167,44,.7)}
-.capta .btn{flex:none;min-height:52px;padding:0 22px}
-.micro{font-size:12.5px;color:var(--mut);margin:12px 0 0;line-height:1.45;max-width:520px}
-.micro b{color:var(--ink2)}
-.capta-err{color:#ff8a8a;font-size:14px;margin:10px 0 0;min-height:0}
-.capta-err:empty{display:none}
-.capta-ok{max-width:520px;padding:16px 20px;border-radius:18px;background:rgba(10,9,8,.85);box-shadow:inset 0 0 0 1.5px rgba(212,167,44,.6);font-weight:700}
-.capta-ok span{display:block;font-size:13.5px;font-weight:500;color:var(--ink2);margin-top:4px}
-.ver-12{display:inline-block;margin-top:18px;color:var(--ink2);font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:2px}
-@media(max-width:520px){.capta{flex-direction:column;border-radius:22px}.capta input{text-align:center}.capta .btn{width:100%}}
-/* Cinta y cifras bajo el héroe */
-.cinta-caja{overflow:hidden;padding:24px 0;margin:-38px 0 -24px;position:relative;z-index:3}
-.cinta{overflow:hidden;background:var(--gold);color:#140f02;transform:rotate(-1.2deg) scale(1.02);box-shadow:0 20px 40px -20px rgba(212,167,44,.6)}
-.cinta div{display:flex;width:max-content;animation:cinta 28s linear infinite}
-.cinta span{flex:none;padding:12px 0;font-stretch:125%;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-@keyframes cinta{to{transform:translateX(-50%)}}
-.pruebas{position:relative;background:radial-gradient(ellipse at 50% 0,rgba(212,167,44,.1),transparent 60%),#000;padding:clamp(56px,8vw,100px) 0 clamp(40px,6vw,80px)}
-.pruebas ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
-.pruebas li{position:relative;padding:8px clamp(10px,2vw,28px);text-align:center}
-.pruebas li+li::before{content:'';position:absolute;left:0;top:12%;bottom:12%;width:1px;background:linear-gradient(transparent,rgba(212,167,44,.5),transparent)}
-.pruebas b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(64px,10vw,150px);line-height:.85;letter-spacing:-.02em;background:linear-gradient(180deg,#fff 0,var(--gold2) 45%,var(--gold) 70%,#7a5c10);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
-.pruebas span{display:block;margin-top:12px;font-size:clamp(11px,1.1vw,14px);font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2)}
-.pruebas small{display:block;margin-top:4px;font-size:12px;color:var(--mut);font-weight:600}
-@media(max-width:760px){.pruebas ul{grid-template-columns:1fr 1fr;row-gap:36px}.pruebas li:nth-child(3)::before{display:none}}
-/* Cartel bloqueado de la 13 */
-.bloqueado{position:relative;margin:26px 0 30px;border-radius:20px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line2)}
-.bloqueado ol{list-style:none;margin:0;padding:14px;display:grid;gap:10px;filter:blur(3.5px);user-select:none}
-.bloqueado li{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:14px;background:var(--bg3)}
-.bloqueado li i{width:44px;height:44px;border-radius:50%;background:linear-gradient(180deg,#6b5a35,#2a2418)}
-.bloqueado li span{font-stretch:125%;font-weight:900;color:var(--gold);font-size:20px}
-.bloqueado li em{flex:1;margin:0 14px;height:12px;border-radius:6px;background:#4a4232}
-.candado{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px;background:radial-gradient(ellipse at center,rgba(5,5,5,.55),rgba(5,5,5,.2))}
-.candado .ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#140f02;box-shadow:0 0 40px rgba(212,167,44,.55)}
-.candado b{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(18px,2.2vw,24px)}
-.candado small{color:var(--ink2);font-size:14px}
-/* Éxito: avisa a tu compañero */
-.compartir{margin-top:18px;display:inline-flex}
-.form .capta{max-width:none}
-.invita b{display:block;font-size:24px;margin:8px 0 6px}
-.invita p{margin:0 0 16px;color:var(--ink2);font-size:15px}
-.invita .x{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.06);color:var(--ink);font-size:16px;cursor:pointer}
-.invita .btn{width:100%}
-@media(max-width:760px){.invita{left:12px;right:12px;width:auto;bottom:calc(76px + env(safe-area-inset-bottom))}}
+.barra .btn{width:100%;min-height:48px}
+@media(max-width:760px){.barra{display:block}}
 
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.esq,.mid b{opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
 
-<div class="flash" id="flash" aria-hidden="true"></div>
-
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="marca" href="#inicio" aria-label="Fight2One, inicio"><img src="img/logo.webp" alt="" width="38" height="38"><b>FIGHT2ONE</b></a>
+    <a class="marca" href="#inicio" aria-label="Fight2One, inicio"><img src="img/logo.webp" alt="" width="34" height="34"><b>FIGHT2ONE</b></a>
     <nav aria-label="Principal">
-      <a href="#proxima">Próxima</a><a href="#cartel">Cartel 12</a><a href="#momentos">Momentos</a><a href="#temporada">Temporada</a><a href="#patrocina">Patrocina</a>
+      <a href="#proxima">F2ONE 13</a><a href="#cartel">Resultados</a><a href="#momentos">Momentos</a><a href="#patrocina">Patrocina</a>
     </nav>
-    <a class="btn btn-oro" href="#lista">Únete a La Grada</a>
+    <a class="btn btn-oro" href="#grada">Avísame</a>
   </div>
 </header>
 
 <section class="heroe" id="inicio" aria-labelledby="h-heroe">
-  <div class="heroe-fondo" aria-hidden="true"></div>
-  <div class="wrap heroe-g">
-    <div>
-      <span class="chip-prox"><i></i>F2ONE 13 · Sábado 13 de marzo</span>
-      <h2 class="ancho" id="h-heroe"><span>Fight to be</span><span class="oro">the number one</span></h2>
-      <p class="lead">Las veladas de MMA, Muay Thai y K1 de Tenerife. Peleadores de todo el mundo, títulos en juego y un pabellón entero gritando.</p>
-      <p class="reloj-tit">Cuenta atrás <b>F2ONE 13</b></p>
-      <div class="reloj" id="reloj" role="timer" aria-label="Tiempo que falta para la F2ONE 13">
-        <div><b id="r-d">--</b><small>Días</small></div><div><b id="r-h">--</b><small>Horas</small></div><div><b id="r-m">--</b><small>Min</small></div><div><b id="r-s">--</b><small>Seg</small></div>
+  <div class="heroe-media" aria-hidden="true">
+    <img src="img/amb-golpe.webp" alt="" width="1400" height="934" fetchpriority="high">
+    <video data-src="vid/v1.mp4" poster="vid/v1.webp" muted loop playsinline preload="none"></video>
+  </div>
+  <div class="wrap">
+    <span class="eti">Próxima velada</span>
+    <h1 class="cond" id="h-heroe">F2ONE <span>13</span></h1>
+    <p class="fecha"><span>Sábado 13 de marzo</span><span>Tenerife</span><span>MMA · Muay Thai · K1</span></p>
+    <div class="heroe-pie">
+      <div>
+        <p class="reloj-tit">Faltan</p>
+        <div class="reloj" role="timer" aria-label="Tiempo que falta para la F2ONE 13">
+          <div><b id="r-d">--</b><small>Días</small></div><div><b id="r-h">--</b><small>Horas</small></div><div><b id="r-m">--</b><small>Min</small></div><div><b id="r-s">--</b><small>Seg</small></div>
+        </div>
       </div>
-      <form class="capta js-capta" data-donde="heroe" novalidate>
-        <label class="sr" for="h-email">Tu email</label>
-        <input id="h-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" required>
-        <button class="btn btn-oro" type="submit">Avísame primero</button>
-      </form>
-      <p class="capta-err" role="alert"></p>
-      <p class="micro"><b>Gratis.</b> Te avisamos del cartel y del día que salen las entradas. Te das de baja con un clic.</p>
-    </div>
-    <div class="carteles" aria-hidden="true">
-      <div class="cv c1"><img src="vid/v2.webp" alt="" width="720" height="1280"><video data-src="vid/v2.mp4" muted loop playsinline preload="none"></video><span>K1</span></div>
-      <div class="cv c3"><img src="vid/v3.webp" alt="" width="720" height="1280"><video data-src="vid/v3.mp4" muted loop playsinline preload="none"></video><span>Muay Thai</span></div>
-      <div class="cv c2"><img src="vid/v1.webp" alt="" width="720" height="1280" fetchpriority="high"><video data-src="vid/v1.mp4" muted loop playsinline preload="none"></video><em>F2ONE 12</em><span>MMA</span></div>
+      <div class="alta">
+        <p class="tit">Te avisamos del cartel y del día que salen las entradas.</p>
+        <form class="capta js-capta" data-donde="heroe" novalidate>
+          <label class="sr" for="h-email">Tu email</label>
+          <input id="h-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" required>
+          <button class="btn btn-oro" type="submit">Avísame</button>
+        </form>
+        <p class="capta-err" role="alert"></p>
+        <p class="micro">Gratis. Pocos emails y te das de baja con un clic.</p>
+      </div>
     </div>
   </div>
-  <span class="baja" aria-hidden="true">Baja</span>
 </section>
 
 <main id="main">
-<div class="cinta-caja" aria-hidden="true"><div class="cinta"><div><span>MMA ✦ Muay Thai ✦ K1 ✦ Títulos mundiales ✦ Tenerife ✦ F2ONE 13 · 13.03 ✦&nbsp;</span><span>MMA ✦ Muay Thai ✦ K1 ✦ Títulos mundiales ✦ Tenerife ✦ F2ONE 13 · 13.03 ✦&nbsp;</span></div></div></div>
-<section class="pruebas" aria-label="Fight2One en cifras">
+<section class="cifras" aria-label="Fight2One en cifras">
   <ul class="wrap">
-    <li><b data-n="12">12</b><span>Veladas</span><small>y vamos a por la 13</small></li>
-    <li><b data-n="11">11</b><span>Combates</span><small>en la F2ONE 12</small></li>
-    <li><b data-n="9">9</b><span>Países</span><small>en una sola noche</small></li>
-    <li><b data-n="11" data-suf="K">11K</b><span>En Instagram</span><small>@fight2one</small></li>
+    <li><b>12</b><span>Veladas</span></li>
+    <li><b>11</b><span>Combates en la F2ONE 12</span></li>
+    <li><b>9</b><span>Países en una noche</span></li>
+    <li><b>11K</b><span>Seguidores en Instagram</span></li>
   </ul>
 </section>
-<section class="paseo" id="paseo" aria-label="Cómo se vive una velada">
-  <div class="paseo-fijo">
-    <div class="paseo-fondo" id="paseo-fondo" aria-hidden="true"></div>
-    <div class="asaltos" aria-hidden="true"><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
-    <div class="asalto-tx" id="asalto-tx" aria-hidden="true">ASALTO 1</div>
-    <p class="frase ancho">Se apagan<br>las <span class="oro">luces.</span></p>
-    <p class="frase ancho">Ruge el<br><span class="oro">pabellón.</span></p>
-    <p class="frase ancho">Se cierra<br>la <span class="oro">jaula.</span></p>
-    <p class="frase ancho">Solo uno<br>levanta el <span class="oro">brazo.</span></p>
-    <p class="frase ancho ultima"><img src="img/logo.webp" alt="" width="120" height="120">Fight to be<br><span class="oro">the number one.</span></p>
-  </div>
-</section>
 
-<section class="sec prox" id="proxima" aria-labelledby="h-prox">
-  <div class="wrap prox-g">
-    <div class="rv">
-      <span class="kick">Próxima velada</span>
-      <div class="cab" style="margin:0"><h2 class="ancho" id="h-prox">Fight2One <span class="oro">13</span></h2>
-      <p>El 13 de marzo vuelve Fight2One. Cartel y entradas, muy pronto: los de La Grada reciben el aviso en su email en cuanto salgan.</p></div>
-      <div class="bloqueado" aria-label="Cartel de la F2ONE 13, todavía bloqueado">
-        <ol aria-hidden="true">
-          <li><i></i><em></em><span>VS</span><em></em><i></i></li>
-          <li><i></i><em></em><span>VS</span><em></em><i></i></li>
-          <li><i></i><em></em><span>VS</span><em></em><i></i></li>
-        </ol>
-        <div class="candado">
-          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
-          <b>Cartel bloqueado</b>
-          <small>Te llega al email en cuanto se anuncie</small>
-        </div>
-      </div>
-      <ul class="ficha">
-        <li><span>Fecha</span><b>13 de marzo</b></li>
-        <li><span>Entradas</span><b id="ficha-entradas">Muy pronto · te avisamos</b></li>
-      </ul>
-      <div class="ctas">
-        <a class="btn btn-oro" href="#lista">Desbloquear el cartel</a>
-        <a class="btn btn-lin js-entradas" href="#lista">Entradas</a>
-      </div>
+<section class="prox" id="proxima" aria-labelledby="h-prox">
+  <div class="prox-foto"><img src="img/amb-suelo.webp" alt="Patada en un combate de K1 de Fight2One" width="1400" height="933" loading="lazy"></div>
+  <div class="prox-tx">
+    <span class="eti">13 · 03 · 2027</span>
+    <h2 class="cond" id="h-prox">Vuelve<br>Fight2One</h2>
+    <p>El cartel y las entradas se anuncian muy pronto. Quien está apuntado se entera el primero, por email.</p>
+    <ul class="ficha">
+      <li><span>Fecha</span>Sábado 13 de marzo</li>
+      <li><span>Cartel</span>Por anunciar</li>
+      <li><span>Entradas</span><b id="ficha-entradas" style="font-weight:700">Por anunciar</b></li>
+    </ul>
+    <div class="ctas">
+      <a class="btn btn-oro" href="#grada">Avísame</a>
+      <a class="btn btn-lin js-entradas" href="#grada" hidden>Entradas</a>
     </div>
-    <div class="trece rv" id="trece" aria-hidden="true">13<small>13 de marzo</small></div>
   </div>
 </section>
 
 <section class="sec" id="cartel" aria-labelledby="h-cartel">
   <div class="wrap">
-    <div class="cab rv">
-      <span class="kick">17 oct · Pabellón Quico Cabrera</span>
-      <h2 class="ancho" id="h-cartel">Así fue la <span class="oro">F2ONE 12</span></h2>
-      <p>Once combates, un título mundial de MMA y el primer Grand Prix de K1 de la historia de Fight2One.</p>
+    <div class="cab">
+      <div><span class="eti">17 oct 2026 · Pabellón Quico Cabrera</span><h2 class="cond" id="h-cartel">Resultados<br>F2ONE 12</h2></div>
+      <p>Once combates, un título mundial de MMA y el primer Grand Prix de K1 de Fight2One.</p>
     </div>
-    <ol class="cartel" id="lista-combates" aria-label="Combates de la F2ONE 12" style="list-style:none;margin:0;padding:0"></ol>
+    <ol class="cartel" id="lista-combates" aria-label="Combates de la F2ONE 12"></ol>
     <p class="nota-pub">Resultados tal como los publicó @fight2one.</p>
   </div>
 </section>
 
-<section class="sec gp" id="grandprix" aria-labelledby="h-gp">
-  <div class="wrap gp-g">
-    <figure class="campeon rv"><img src="img/eduardo-catalin.webp" alt="Eduardo Catalin, campeón del Grand Prix de K1" width="420" height="420" loading="lazy"><figcaption><span class="kick">Campeón · Grand Prix K1</span><b class="ancho">Eduardo<br>Catalin</b></figcaption></figure>
-    <div class="rv">
-      <span class="kick">Primera vez en la historia</span>
-      <div class="cab" style="margin-bottom:28px"><h2 class="ancho" id="h-gp">Grand Prix <span class="oro">K1</span></h2>
-      <p>Cuatro luchadores, cuatro países y un solo campeón. Semifinales y final en la misma noche.</p></div>
+<section class="sec" id="grandprix" aria-labelledby="h-gp" style="padding-top:0">
+  <div class="wrap gp">
+    <figure class="campeon"><img src="img/eduardo-catalin.webp" alt="Eduardo Catalin, campeón del Grand Prix de K1" width="420" height="420" loading="lazy"><figcaption><span class="eti">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
+    <div>
+      <span class="eti">Grand Prix K1</span>
+      <h2 class="cond" id="h-gp" style="font-size:clamp(46px,7vw,104px);margin:10px 0 16px">Cuatro<br>peleadores,<br>una noche</h2>
+      <p style="color:var(--gris);margin:0;max-width:460px">Semifinales y final el mismo día. Rumanía, Marruecos, Georgia y España.</p>
       <div class="llaves">
         <div class="semis">
           <div class="llave"><small>Semifinal 1</small><div>Zhvania · GEO</div><div class="g">Catalin · ROU</div></div>
           <div class="llave"><small>Semifinal 2</small><div class="g">Echchad · MAR</div><div>Hernández · ESP</div></div>
         </div>
-        <div class="llave final"><small>🏆 Final</small><div class="g">Catalin · ROU</div><div>Echchad · MAR</div></div>
+        <div class="llave final"><small>Final</small><div class="g">Catalin · ROU</div><div>Echchad · MAR</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="momentos" aria-labelledby="h-mom" style="padding-top:0">
-  <div class="wrap">
-    <div class="cab rv"><span class="kick">Así se vive</span><h2 class="ancho" id="h-mom">Momentos</h2></div>
-    <div class="carril" id="carril">
-      <figure><img src="vid/v2.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="vid/v2.mp4" muted loop playsinline preload="none" aria-label="Patada alta"></video><figcaption>Patada alta</figcaption></figure>
-      <figure><img src="vid/v4.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="vid/v4.mp4" muted loop playsinline preload="none" aria-label="Lucha en el suelo"></video><figcaption>Guerra en el suelo</figcaption></figure>
-      <figure class="foto"><img src="img/amb-golpe.webp" alt="Golpe al rostro en un combate de K1" loading="lazy"><figcaption>K1</figcaption></figure>
-      <figure><img src="vid/v5.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="vid/v5.mp4" muted loop playsinline preload="none" aria-label="Intercambio de golpes"></video><figcaption>Intercambio</figcaption></figure>
-      <figure class="foto"><img src="img/amb-victoria.webp" alt="Un peleador celebra la victoria con el árbitro" loading="lazy" style="object-position:50% 25%"><figcaption>La victoria</figcaption></figure>
-      <figure><img src="vid/v1.webp" alt="" width="720" height="1280" loading="lazy"><video data-src="vid/v1.mp4" muted loop playsinline preload="none" aria-label="Combate en la jaula"></video><figcaption>La jaula</figcaption></figure>
-      <figure class="foto"><img src="img/amb-estelar.webp" alt="Combate estelar en la jaula" loading="lazy"><figcaption>El estelar</figcaption></figure>
-    </div>
+  <div class="wrap cab" style="margin-bottom:24px"><div><span class="eti">F2ONE 12</span><h2 class="cond" id="h-mom">Momentos</h2></div><p><a href="https://www.instagram.com/fight2one/" target="_blank" rel="noopener" style="color:var(--blanco)">Más en @fight2one →</a></p></div>
+  <div class="carril" id="carril">
+    <figure><video data-src="vid/v2.mp4" poster="vid/v2.webp" muted loop playsinline preload="none" aria-label="Patada alta"></video></figure>
+    <figure class="foto"><img src="img/amb-cara.webp" alt="Combate de MMA en el suelo" loading="lazy" width="1400" height="933"></figure>
+    <figure><video data-src="vid/v4.mp4" poster="vid/v4.webp" muted loop playsinline preload="none" aria-label="Lucha en el suelo"></video></figure>
+    <figure class="foto"><img src="img/amb-k1.webp" alt="Golpe en un combate de K1" loading="lazy" width="1400" height="933"></figure>
+    <figure><video data-src="vid/v5.mp4" poster="vid/v5.webp" muted loop playsinline preload="none" aria-label="Intercambio de golpes"></video></figure>
+    <figure class="foto"><img src="img/amb-jaula.webp" alt="Estrangulación contra la jaula" loading="lazy" width="1400" height="933"></figure>
+    <figure><img src="img/amb-victoria.webp" alt="Un peleador celebra la victoria con el árbitro" loading="lazy" width="720" height="1280" style="object-position:50% 25%"></figure>
   </div>
 </section>
 
 <section class="sec" id="temporada" aria-labelledby="h-temp" style="padding-top:0">
   <div class="wrap">
-    <div class="cab rv"><span class="kick">El circuito</span><h2 class="ancho" id="h-temp">La <span class="oro">temporada</span></h2>
-    <p>Fight2One sube de nivel: más veladas al año, más peleadores y más espectáculo. No te quedes fuera de ninguna.</p></div>
-    <ol class="temporada rv">
+    <div class="cab"><div><span class="eti">Temporada</span><h2 class="cond" id="h-temp">Más veladas</h2></div><p>Fight2One crece: más veladas al año y más peleadores de fuera.</p></div>
+    <ol class="temporada">
       <li class="ya"><b>12</b><span>17 oct 2026 · Celebrada</span></li>
-      <li><b>13</b><span>13 de marzo</span></li>
+      <li class="prox"><b>13</b><span>13 de marzo</span></li>
       <li><b>14</b><span>Por anunciar</span></li>
       <li><b>15</b><span>Por anunciar</span></li>
       <li><b>16</b><span>Por anunciar</span></li>
@@ -484,49 +348,50 @@ footer nav a:first-child{margin-left:0}
   </div>
 </section>
 
-<section class="sec lista" id="lista" aria-labelledby="h-lista">
+<section class="sec grada" id="grada" aria-labelledby="h-grada">
+  <img src="img/amb-jaula.webp" alt="" width="1400" height="933" loading="lazy">
   <div class="wrap">
-    <div class="rv">
-      <span class="kick">La Grada de Fight2One</span>
-      <h2 class="ancho" id="h-lista">Que no te la <span class="oro">cuenten.</span></h2>
-      <p style="color:var(--ink2);font-size:18px;margin:18px 0 0;max-width:480px">Las veladas se anuncian primero aquí. Si te enteras por Instagram, llegas tarde.</p>
+    <div>
+      <span class="eti">La Grada de Fight2One</span>
+      <h2 class="cond" id="h-grada">Entérate<br>el primero</h2>
+      <p>Las veladas se anuncian primero por email.</p>
       <ul class="ventajas">
-        <li><span><b>Aviso de entradas:</b> te escribimos el mismo día que salgan a la venta.</span></li>
-        <li><span><b>El cartel en tu email:</b> los combates y los peleadores, contados por dentro.</span></li>
-        <li><span><b>Solo lo importante:</b> pocos correos, y te das de baja cuando quieras.</span></li>
+        <li><b>Entradas:</b> te escribimos el mismo día que salen a la venta.</li>
+        <li><b>Cartel:</b> los combates y los peleadores, en cuanto se cierren.</li>
+        <li><b>Sin spam:</b> pocos emails y te das de baja cuando quieras.</li>
       </ul>
     </div>
-    <div class="form rv" id="form-caja">
+    <div class="caja">
       <div id="form-lista">
-        <label for="f-email" style="display:block;font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--ink2);margin:0 0 10px">Tu sitio en La Grada</label>
+        <label for="f-email">Tu email</label>
         <form class="capta js-capta" data-donde="grada" novalidate>
-          <input id="f-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" required>
-          <button class="btn btn-oro" type="submit">Entrar</button>
+          <input id="f-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="nombre@email.com" required>
+          <button class="btn btn-oro" type="submit">Apuntarme</button>
         </form>
         <p class="capta-err" role="alert"></p>
-        <p class="micro"><b>Gratis.</b> Solo te escribimos para el cartel, los combates y cuando salgan las entradas. Te das de baja con un clic.</p>
+        <p class="micro">Gratis. Solo para el cartel, los combates y las entradas.</p>
       </div>
-      <div class="dentro" id="dentro" hidden><span class="kick" style="justify-content:center">Hecho</span><b class="ancho">Estás en <span class="oro">La Grada.</span></b><p>Te avisamos del cartel y en cuanto salgan las entradas de la F2ONE 13 (13 de marzo).</p>
-        <a class="btn btn-lin compartir js-compartir" href="#" target="_blank" rel="noopener">Avisa a tu compañero de grada</a></div>
+      <div class="dentro" id="dentro" hidden><span class="eti">Hecho</span><b class="cond">Estás dentro</b><p>Te avisamos del cartel y de las entradas de la F2ONE 13.</p>
+        <a class="btn btn-lin js-compartir" href="#" target="_blank" rel="noopener">Pásaselo a un amigo</a></div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="patrocina" aria-label="Patrocinio y peleadores">
-  <div class="wrap dos">
-    <article class="panel rv">
-      <img src="img/amb-jaula.webp" alt="" width="1400" height="933" loading="lazy">
-      <span class="kick">Patrocina Fight2One</span>
-      <h3 class="ancho">Tu marca<br>en el <span class="oro">ring.</span></h3>
-      <p>El público del pabellón, la retransmisión en directo y nuestras redes viendo tu marca en la noche más intensa de Tenerife.</p>
-      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20quiero%20el%20dossier%20de%20patrocinio%20de%20Fight2One" target="_blank" rel="noopener">Pide el dossier</a></div>
+<section id="patrocina" aria-label="Patrocinio y peleadores">
+  <div class="dos">
+    <article class="panel">
+      <img src="img/amb-k1.webp" alt="" width="1400" height="933" loading="lazy">
+      <span class="eti">Patrocinio</span>
+      <h3 class="cond">Tu marca<br>en la jaula</h3>
+      <p>El pabellón lleno, la retransmisión y nuestras redes.</p>
+      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20quiero%20el%20dossier%20de%20patrocinio%20de%20Fight2One" target="_blank" rel="noopener">Pedir dossier</a></div>
     </article>
-    <article class="panel rv" id="pelea">
-      <img src="img/amb-victoria.webp" alt="" width="720" height="1280" loading="lazy" style="object-position:50% 25%">
-      <span class="kick">Peleadores y mánagers</span>
-      <h3 class="ancho">¿Quieres<br><span class="oro">pelear?</span></h3>
-      <p>Buscamos peleadores de MMA, Muay Thai y K1 con hambre de subir. Mándanos tu récord, tu peso y tus vídeos.</p>
-      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20soy%20peleador%2Fm%C3%A1nager%20y%20quiero%20pelear%20en%20Fight2One.%20Modalidad%3A%20%20Peso%3A%20%20R%C3%A9cord%3A%20" target="_blank" rel="noopener">Enviar mi perfil</a></div>
+    <article class="panel" id="pelea">
+      <img src="img/amb-cara.webp" alt="" width="1400" height="933" loading="lazy">
+      <span class="eti">Peleadores y mánagers</span>
+      <h3 class="cond">¿Quieres<br>pelear?</h3>
+      <p>MMA, Muay Thai y K1. Mándanos tu récord, tu peso y tus vídeos.</p>
+      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20soy%20peleador%2Fm%C3%A1nager%20y%20quiero%20pelear%20en%20Fight2One.%20Modalidad%3A%20%20Peso%3A%20%20R%C3%A9cord%3A%20" target="_blank" rel="noopener">Enviar perfil</a></div>
     </article>
   </div>
 </section>
@@ -534,33 +399,24 @@ footer nav a:first-child{margin-left:0}
 
 <footer>
   <div class="wrap">
-    <a class="marca" href="#inicio" aria-label="Fight2One, volver arriba"><img src="img/logo.webp" alt="" width="38" height="38"><b>FIGHT2ONE</b></a>
+    <p class="lema">Fight to be the number one</p>
+    <a class="marca" href="#inicio" aria-label="Fight2One, volver arriba"><img src="img/logo.webp" alt="" width="34" height="34"><b>FIGHT2ONE</b></a>
     <nav aria-label="Redes"><a href="https://www.instagram.com/fight2one/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/34663942172" target="_blank" rel="noopener">WhatsApp</a></nav>
     <p style="margin:0;width:100%">© Fight2One · Tenerife · Web por <a href="https://airmate.es">Airmate</a></p>
   </div>
 </footer>
 
-<div class="barra" id="barra"><a class="btn btn-lin" href="#proxima">🔒 Cartel 13</a><a class="btn btn-oro" href="#lista">Desbloquear</a></div>
-<aside class="invita" id="invita" aria-label="Únete a la lista" hidden>
-  <button class="x" id="invita-x" aria-label="Cerrar">✕</button>
-  <span class="kick">F2ONE 13</span><b class="ancho">No te enteres tarde.</b>
-  <p>13 de marzo. Te avisamos del cartel y de las entradas.</p>
-  <form class="capta js-capta" data-donde="aviso" novalidate style="flex-direction:column;border-radius:20px">
-    <input type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" aria-label="Tu email" required style="text-align:center">
-    <button class="btn btn-oro" type="submit" style="width:100%">Avísame primero</button>
-  </form>
-  <p class="capta-err" role="alert"></p>
-</aside>
+<div class="barra" id="barra"><a class="btn btn-oro" href="#grada">Avísame de las entradas</a></div>
 
 <script>
-/* Enlace de la plataforma de entradas: cuando salgan, poner aquí la URL y todos los botones «Entradas» llevan a comprar */
+/* Enlace de la plataforma de entradas: cuando salgan, poner aquí la URL y aparecen los botones «Comprar entradas» */
 const ENTRADAS_URL='';
 const SB_URL='https://vjofxmfwdybktpwiuanc.supabase.co';
 const SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZqb2Z4bWZ3ZHlia3Rwd2l1YW5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0NzU5NDYsImV4cCI6MjA5MDA1MTk0Nn0.ixU-33c0FEkO7F5xjWb3YHkvj_pQuR0gsJETrGA8ZTE';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const RED=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const AHORRO=navigator.connection&&navigator.connection.saveData;
-const guarda=(k,v)=>{ try{ v==null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
+const guarda=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
 const lee=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } };
 const leeS=k=>{ try{ return sessionStorage.getItem(k); }catch(e){ return null; } };
 const guardaS=(k,v)=>{ try{ sessionStorage.setItem(k,v); }catch(e){} };
@@ -571,47 +427,24 @@ const ORIGEN=(()=>{ const q=new URLSearchParams(location.search), o=q.get('o')||
   return leeS('f2o_origen')||(/instagram/i.test(document.referrer)?'instagram':'web'); })();
 
 /* Entradas */
-if(ENTRADAS_URL){ $$('.js-entradas').forEach(a=>{ a.href=ENTRADAS_URL; a.target='_blank'; a.rel='noopener'; a.textContent='Comprar entradas'; }); $('#ficha-entradas').textContent='A la venta'; }
+if(ENTRADAS_URL){ $$('.js-entradas').forEach(a=>{ a.hidden=false; a.href=ENTRADAS_URL; a.target='_blank'; a.rel='noopener'; a.textContent='Comprar entradas'; }); $('#ficha-entradas').textContent='A la venta'; }
 
-arrancarHeroe();
+/* Vídeos: solo se cargan los que están a la vista (el del héroe solo en el móvil) */
+function reproducir(v){ if(!v.src) v.src=v.dataset.src; v.play().catch(()=>{}); }
+if(!RED&&!AHORRO&&'IntersectionObserver' in window){
+  const vo=new IntersectionObserver(es=>es.forEach(en=>{ const v=en.target; if(en.isIntersecting&&v.offsetParent!==null) reproducir(v); else if(v.src) v.pause(); }),{threshold:.3});
+  $$('video[data-src]').forEach(v=>vo.observe(v));
+}
 
-/* 1 · Héroe: vídeos de los carteles (en móvil solo el central) y cuenta atrás */
-function arrancarHeroe(){ if(RED||AHORRO) return; $$('.cv video').forEach(v=>{ if(getComputedStyle(v.parentNode).display!=='none') reproducir(v); }); }
-function reproducir(v){ if(!v.src) v.src=v.dataset.src; v.addEventListener('playing',()=>{ v.previousElementSibling&&(v.previousElementSibling.style.opacity=0); },{once:true}); v.play().catch(()=>{}); }
-/* Hasta el día de la velada (00:00 en Canarias, invierno = UTC); cambiar si se confirma la hora */
+/* Cuenta atrás hasta el día de la velada (00:00 en Canarias, invierno = UTC); cambiar si se confirma la hora */
 const VELADA=Date.UTC(2027,2,13,0,0,0);
 const dos=n=>String(n).padStart(2,'0');
 function pintarReloj(){ let t=Math.max(0,VELADA-Date.now())/1000;
   const d=Math.floor(t/86400); t-=d*86400; const h=Math.floor(t/3600); t-=h*3600; const m=Math.floor(t/60), sg=Math.floor(t-m*60);
   $('#r-d').textContent=d; $('#r-h').textContent=dos(h); $('#r-m').textContent=dos(m); $('#r-s').textContent=dos(sg); }
 pintarReloj(); setInterval(pintarReloj,1000);
-/* Cifras que cuentan al aparecer */
-const cifras=$$('.pruebas b[data-n]');
-if('IntersectionObserver' in window&&!RED){
-  cifras.forEach(b=>b.textContent='0'+(b.dataset.suf||''));
-  const co=new IntersectionObserver(es=>es.forEach(en=>{ if(!en.isIntersecting) return; co.unobserve(en.target); const b=en.target, n=+b.dataset.n, suf=b.dataset.suf||'', t0=performance.now();
-    const paso=t=>{ const k=Math.min(1,(t-t0)/1400), e=1-Math.pow(1-k,3); b.textContent=Math.round(n*e)+suf; if(k<1) requestAnimationFrame(paso); }; requestAnimationFrame(paso); }),{threshold:.5});
-  cifras.forEach(b=>co.observe(b));
-}
 
-/* 2 · El paseíllo: las frases avanzan con el scroll, como los asaltos */
-const paseo=$('#paseo'), frases=$$('.frase'), barras=$$('.asaltos i');
-const FONDOS=['amb-jaula','amb-suelo','amb-estelar','amb-golpe','amb-victoria'];
-$('#paseo-fondo').innerHTML=FONDOS.map(n=>`<i style="background-image:url('img/${n}.webp')"></i>`).join('');
-const capas=$$('#paseo-fondo i');
-if(RED) document.documentElement.classList.add('sin-mov');
-else {
-  let actual=-1;
-  const pintarPaseo=()=>{ const r=paseo.getBoundingClientRect(), total=r.height-innerHeight; const p=Math.min(1,Math.max(0,-r.top/total));
-    const i=Math.min(frases.length-1,Math.floor(p*frases.length));
-    barras.forEach((b,k)=>b.style.width=(k<i?100:k===i?Math.min(100,(p*frases.length-i)*100):0)+'%');
-    if(i!==actual){ actual=i; frases.forEach((f,k)=>f.classList.toggle('on',k===i)); capas.forEach((c,k)=>c.classList.toggle('on',k===i));
-      $('#asalto-tx').textContent=i<4?'ASALTO '+(i+1):'FIN DEL COMBATE'; } };
-  let pend=false; addEventListener('scroll',()=>{ if(pend) return; pend=true; requestAnimationFrame(()=>{ pend=false; pintarPaseo(); }); },{passive:true});
-  pintarPaseo();
-}
-
-/* 4 · Cartel F2ONE 12 (publicado por @fight2one). [país, foto] */
+/* Cartel F2ONE 12 (publicado por @fight2one). [país, foto] */
 const F={Reyes:['NIC',''],'Ken Sekeletu':['ZAM',''],'de Oliveira':['BRA',''],'Zebenzui Ruiz':['ESP','zebenzui-ruiz'],Luna:['HON',''],'Martín Alonso':['ESP','martin-alonso'],'Eduardo Catalin':['ROU','eduardo-catalin'],'Mohamed Echchad':['MAR','mohamed-echchad'],Zhvania:['GEO',''],'Hernández':['ESP',''],'Victor Córdoba':['ESP','victor-cordoba'],Zamoudi:['MAR',''],Cabrera:['ESP',''],'Maikel Rodríguez':['ESP',''],Reina:['ESP',''],'Gabriel Bello':['ESP',''],Trujillo:['ESP',''],'Dario Boyd':['ESP',''],'Brian Soliana':['NED','brian-soliana'],Delgado:['ESP','']};
 // [esquina A, esquina B, modalidad, nota, ganador 'a'|'b'|'' (no publicado), estelar]
 const C=[
@@ -632,54 +465,38 @@ const cara=n=>F[n][1]?`<img class="hx" src="img/${F[n][1]}.webp" alt="" width="4
 const esq=(n,lado,g)=>`<div class="esq ${lado}${g==='p'?' pierde':''}">${cara(n)}<div><b>${n}</b><small>${lado==='b'&&g==='w'?'<span class="gana">GANA</span>':''}${F[n][0]}${lado==='a'&&g==='w'?' <span class="gana">GANA</span>':''}</small></div></div>`;
 $('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est])=>{
   const ga=g?(g==='a'?'w':'p'):'', gb=g?(g==='b'?'w':'p'):'';
-  return `<li class="pelea${est?' estelar':''}" aria-label="${a} contra ${b}, ${mod}. ${g?'Gana '+(g==='a'?a:b):'Resultado no publicado'}">${est?'<span class="tag-est">COMBATE ESTELAR</span>':''}${esq(a,'a',ga)}<div class="mid"><b>VS</b><small>${mod}</small>${nota?`<em>${nota}</em>`:''}</div>${esq(b,'b',gb)}</li>`;
+  return `<li class="pelea${est?' estelar':''}" aria-label="${a} contra ${b}, ${mod}. ${g?'Gana '+(g==='a'?a:b):'Resultado no publicado'}">${esq(a,'a',ga)}<div class="mid"><b>${est?'Estelar · ':''}${mod}</b>${nota?`<em>${nota}</em>`:''}</div>${esq(b,'b',gb)}</li>`;
 }).join('');
 
-/* Apariciones al hacer scroll */
-if('IntersectionObserver' in window&&!RED){
-  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }),{threshold:.2,rootMargin:'0px 0px -40px 0px'});
-  $$('.rv,.pelea,#trece').forEach(el=>io.observe(el));
-  const vo=new IntersectionObserver(es=>es.forEach(en=>{ const v=en.target; if(en.isIntersecting&&!AHORRO) reproducir(v); else if(v.src) v.pause(); }),{threshold:.4});
-  $$('.carril video').forEach(v=>vo.observe(v));
-} else $$('.rv,.pelea,#trece').forEach(el=>el.classList.add('in'));
-
-/* Navegación, barra móvil e invitación a la lista */
-const nav=$('#nav'), barra=$('#barra'), invita=$('#invita');
-let invitado=!!(leeS('f2o_invita')||lee('f2o_lista'));
+/* Navegación y barra del móvil (se esconde cuando el formulario está a la vista) */
+const nav=$('#nav'), barra=$('#barra');
 addEventListener('scroll',()=>{
   nav.classList.toggle('solid',scrollY>40);
-  const enLista=$('#lista').getBoundingClientRect(), lejos=enLista.top>innerHeight||enLista.bottom<0;
-  barra.classList.toggle('on',scrollY>innerHeight*.8&&lejos);
-  if(scrollY>(document.body.scrollHeight-innerHeight)*.4&&lejos) abreInvita();
+  const g=$('#grada').getBoundingClientRect(), lejos=g.top>innerHeight||g.bottom<0;
+  barra.classList.toggle('on',scrollY>innerHeight*.9&&lejos&&!lee('f2o_lista'));
 },{passive:true});
-/* La invitación sale al pasar el 40 % de la página o, en ordenador, cuando el ratón se va hacia arriba para cerrar */
-function abreInvita(){ if(invitado) return; invitado=true; guardaS('f2o_invita','1'); invita.hidden=false; requestAnimationFrame(()=>invita.classList.add('on')); }
-document.addEventListener('mouseout',e=>{ if(!e.relatedTarget&&e.clientY<8&&scrollY>innerHeight*.5) abreInvita(); });
-const cierraInvita=()=>{ invita.classList.remove('on'); setTimeout(()=>invita.hidden=true,600); };
-$('#invita-x').onclick=cierraInvita;
 
-/* 8 · La Grada: alta en la base de datos de Fight2One (mismo envío desde el héroe, la sección y la invitación) */
+/* La Grada: alta en la base de datos de Fight2One (mismo envío desde el héroe y la sección) */
 const URL_WEB=location.origin+location.pathname;
-$$('.js-compartir').forEach(a=>a.href='https://wa.me/?text='+encodeURIComponent('Me he apuntado a La Grada de Fight2One: F2ONE 13 el 13 de marzo, avisan en cuanto salgan las entradas. Apúntate y vamos juntos 👊 '+URL_WEB+'?o=amigo'));
+$$('.js-compartir').forEach(a=>a.href='https://wa.me/?text='+encodeURIComponent('Me he apuntado para que me avisen de las entradas de la F2ONE 13 (13 de marzo). Apúntate y vamos juntos 👊 '+URL_WEB+'?o=amigo'));
 const yaDentro=()=>{
   $('#form-lista').hidden=true; $('#dentro').hidden=false;
-  $$('.js-capta').forEach(f=>{ if(f.closest('#form-lista')) return; const ok=document.createElement('div'); ok.className='capta-ok'; ok.innerHTML='Estás en La Grada 🔥<span>Te avisamos del cartel y de las entradas de la F2ONE 13.</span>'; f.replaceWith(ok); });
-  $$('.micro').forEach(m=>m.remove()); $$('.capta-err').forEach(m=>m.textContent='');
+  $$('.js-capta').forEach(f=>{ if(f.closest('#form-lista')) return; const ok=document.createElement('div'); ok.className='capta-ok'; ok.innerHTML='Estás dentro.<span>Te avisamos del cartel y de las entradas de la F2ONE 13.</span>'; f.replaceWith(ok); });
+  $$('.micro,.alta .tit').forEach(m=>m.remove()); $$('.capta-err').forEach(m=>m.textContent='');
+  barra.classList.remove('on');
 };
 if(lee('f2o_lista')) yaDentro();
 $$('.js-capta').forEach(form=>form.addEventListener('submit',async e=>{
   e.preventDefault(); const inp=form.querySelector('input'), btn=form.querySelector('button'), err=form.nextElementSibling, txt=btn.textContent;
   err.textContent=''; const email=inp.value.trim();
   if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email)){ err.textContent='Revisa el email, parece que falta algo.'; inp.focus(); return; }
-  btn.disabled=true; btn.textContent='Entrando…';
+  btn.disabled=true; btn.textContent='Enviando…';
   try{
     const r=await fetch(SB_URL+'/rest/v1/rpc/f2o_lista_alta',{method:'POST',headers:{'Content-Type':'application/json',apikey:SB_ANON,Authorization:'Bearer '+SB_ANON},
       body:JSON.stringify({p_email:email,p_nombre:'',p_origen:(ORIGEN+'-'+form.dataset.donde).slice(0,40),p_acepta:true})});
     const d=r.ok?await r.json():null;
     if(!d||!d.ok) throw new Error(d&&d.error||'http');
-    guarda('f2o_lista','1'); navigator.vibrate&&navigator.vibrate([20,30,80]);
-    const f=$('#flash'); f.classList.remove('on'); void f.offsetWidth; f.classList.add('on');
-    if(form.dataset.donde==='aviso') setTimeout(cierraInvita,2200);
+    guarda('f2o_lista','1'); navigator.vibrate&&navigator.vibrate(30);
     yaDentro();
   }catch(x){
     err.textContent=x.message==='email'?'Revisa el email, parece que falta algo.':'No se ha podido apuntar ahora mismo. Prueba en un momento.';
