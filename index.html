@@ -410,7 +410,7 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 
 <section class="sec" id="grandprix" aria-labelledby="h-gp" style="padding-top:0">
   <div class="wrap gp">
-    <figure class="campeon foto-rv"><img src="img/eduardo-catalin.webp" alt="Eduardo Catalin, campeón del Grand Prix de K1" width="420" height="420" loading="lazy"><figcaption><span class="eti" data-en="Champion">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
+    <figure class="campeon foto-rv"><img src="img/gp-final.webp" alt="Eduardo Catalin en la final del Grand Prix de K1 contra Mohamed Echchad" width="720" height="1280" loading="lazy" style="object-position:50% 40%"><figcaption><span class="eti" data-en="Champion">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
     <div>
       <span class="eti">Grand Prix K1</span>
       <h2 class="cond" id="h-gp" style="font-size:clamp(46px,7vw,104px);margin:10px 0 16px" data-en="Four<br>fighters,<br>one night">Cuatro<br>peleadores,<br>una noche</h2>
@@ -429,11 +429,10 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 <section class="sec" id="momentos" aria-labelledby="h-mom" style="padding-top:0">
   <div class="wrap cab" style="margin-bottom:24px"><div><span class="eti">F2ONE 12</span><h2 class="cond tit-rv" id="h-mom"><span class="linea"><span data-en="Highlights">Momentos</span></span></h2></div><p><a href="https://www.instagram.com/fight2one/" target="_blank" rel="noopener" style="color:var(--blanco)" data-en="More on @fight2one →">Más en @fight2one →</a></p></div>
   <div class="carril" id="carril">
-    <figure><video data-src="vid/v2.mp4" poster="vid/v2.webp" muted loop playsinline preload="none" aria-label="Patada alta"></video></figure>
+    <figure class="foto"><video data-src="vid/pabellon.mp4" poster="vid/pabellon.webp" muted loop playsinline preload="none" aria-label="Salida de un peleador a la jaula en la F2ONE 12"></video></figure>
     <figure class="foto"><img src="img/ig-patada-cabeza.webp" alt="Patada a la cabeza en la F2ONE 12" loading="lazy" width="1800" height="1200"></figure>
     <figure><video data-src="vid/v4.mp4" poster="vid/v4.webp" muted loop playsinline preload="none" aria-label="Lucha en el suelo"></video></figure>
     <figure class="foto"><img src="img/ig-encima.webp" alt="Control en el suelo en un combate de MMA" loading="lazy" width="1800" height="1199"></figure>
-    <figure><video data-src="vid/v5.mp4" poster="vid/v5.webp" muted loop playsinline preload="none" aria-label="Intercambio de golpes"></video></figure>
     <figure class="foto"><img src="img/ig-patada-giro.webp" alt="Patada alta contra la jaula" loading="lazy" width="1800" height="1200"></figure>
     <figure class="foto"><img src="img/ig-victoria.webp" alt="Un peleador celebra la victoria con el árbitro" loading="lazy" width="1800" height="1199"></figure>
     <figure class="foto"><img src="img/ig-cruce.webp" alt="Intercambio de golpes en la F2ONE 12" loading="lazy" width="1800" height="1200"></figure>
@@ -561,27 +560,28 @@ function pintarReloj(){ let t=Math.max(0,VELADA-Date.now())/1000;
 pintarReloj(); setInterval(pintarReloj,1000);
 
 /* Cartel F2ONE 12 (publicado por @fight2one). [país, foto] */
-const F={Reyes:['NIC',''],'Ken Sekeletu':['ZAM',''],'de Oliveira':['BRA',''],'Zebenzui Ruiz':['ESP','zebenzui-ruiz'],Luna:['HON',''],'Martín Alonso':['ESP','martin-alonso'],'Eduardo Catalin':['ROU','eduardo-catalin'],'Mohamed Echchad':['MAR','mohamed-echchad'],Zhvania:['GEO',''],'Hernández':['ESP',''],'Victor Córdoba':['ESP','victor-cordoba'],Zamoudi:['MAR',''],Cabrera:['ESP',''],'Maikel Rodríguez':['ESP',''],Reina:['ESP',''],'Gabriel Bello':['ESP',''],Trujillo:['ESP',''],'Dario Boyd':['ESP',''],'Brian Soliana':['NED','brian-soliana'],Delgado:['ESP','']};
+const F={Reyes:'NIC','Ken Sekeletu':'ZAM','de Oliveira':'BRA','Zebenzui Ruiz':'ESP',Luna:'HON','Martín Alonso':'ESP','Eduardo Catalin':'ROU','Mohamed Echchad':'MAR',Zhvania:'GEO','Hernández':'ESP','Victor Córdoba':'ESP',Zamoudi:'MAR',Cabrera:'ESP','Maikel Rodríguez':'ESP',Reina:'ESP','Gabriel Bello':'ESP',Trujillo:'ESP','Dario Boyd':'ESP','Brian Soliana':'NED',Delgado:'ESP'};
 // [esquina A, esquina B, modalidad, nota, ganador 'a'|'b'|'' (no publicado), estelar]
+// [esquina A, esquina B, modalidad, nota, ganador 'a'|'b'|'' (no publicado), estelar, foto A, foto B] · una foto distinta en cada combate
 const C=[
-  ['Reyes','Ken Sekeletu','MMA','Título mundial peso pluma','',1],
-  ['de Oliveira','Zebenzui Ruiz','MMA','Coestelar','b'],
-  ['Eduardo Catalin','Mohamed Echchad','K1','Final del Grand Prix','a'],
-  ['Luna','Martín Alonso','MMA','','b'],
-  ['Delgado','Brian Soliana','MMA','Por KO','b'],
-  ['Victor Córdoba','Zamoudi','K1','','a'],
-  ['Cabrera','Maikel Rodríguez','K1','','b'],
-  ['Reina','Gabriel Bello','MMA','','b'],
-  ['Trujillo','Dario Boyd','MMA','','b'],
-  ['Zhvania','Eduardo Catalin','K1','Semifinal Grand Prix','b'],
-  ['Mohamed Echchad','Hernández','K1','Semifinal Grand Prix','a'],
+  ['Reyes','Ken Sekeletu','MMA','Título mundial peso pluma','b',1,'p-reyes','p-sekeletu'],
+  ['de Oliveira','Zebenzui Ruiz','MMA','Coestelar','b',0,'p-oliveira','p-ruiz'],
+  ['Eduardo Catalin','Mohamed Echchad','K1','Final del Grand Prix','a',0,'eduardo-catalin','mohamed-echchad'],
+  ['Luna','Martín Alonso','MMA','','b',0,'p-luna','p-alonso'],
+  ['Delgado','Brian Soliana','MMA','Por KO','b',0,'p-delgado','p-soliana'],
+  ['Victor Córdoba','Zamoudi','K1','','a',0,'p-cordoba','p-zamoudi'],
+  ['Cabrera','Maikel Rodríguez','K1','','b',0,'p-cabrera','p-maikel'],
+  ['Reina','Gabriel Bello','MMA','','b',0,'p-reina','p-bello'],
+  ['Trujillo','Dario Boyd','MMA','','b',0,'p-trujillo','p-boyd'],
+  ['Zhvania','Eduardo Catalin','K1','Semifinal Grand Prix','b',0,'p-zhvania','p-catalin-semi'],
+  ['Mohamed Echchad','Hernández','K1','Semifinal Grand Prix','a',0,'p-echchad-semi','p-hernandez'],
 ];
 const ini=n=>n.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
-const cara=n=>F[n][1]?`<img class="hx" src="img/${F[n][1]}.webp" alt="" width="420" height="420" loading="lazy">`:`<span class="hx" aria-hidden="true">${ini(n)}</span>`;
-const esq=(n,lado,g)=>`<div class="esq ${lado}${g==='p'?' pierde':''}">${cara(n)}<div><b>${n}</b><small>${lado==='b'&&g==='w'?`<span class="gana">${tx().gana}</span>`:''}${F[n][0]}${lado==='a'&&g==='w'?` <span class="gana">${tx().gana}</span>`:''}</small></div></div>`;
-function pintarCombates(){ const t=tx(); $('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est])=>{
+const cara=(n,f)=>f?`<img class="hx" src="img/${f}.webp" alt="" width="420" height="420" loading="lazy">`:`<span class="hx" aria-hidden="true">${ini(n)}</span>`;
+const esq=(n,lado,g,f)=>`<div class="esq ${lado}${g==='p'?' pierde':''}">${cara(n,f)}<div><b>${n}</b><small>${lado==='b'&&g==='w'?`<span class="gana">${tx().gana}</span>`:''}${F[n]}${lado==='a'&&g==='w'?` <span class="gana">${tx().gana}</span>`:''}</small></div></div>`;
+function pintarCombates(){ const t=tx(); $('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est,fa,fb])=>{
   const ga=g?(g==='a'?'w':'p'):'', gb=g?(g==='b'?'w':'p'):'', no=nota?(t.notas[nota]||nota):'';
-  return `<li class="pelea${est?' estelar':''}" aria-label="${a} ${t.contra} ${b}, ${mod}. ${g?t.ganaA+(g==='a'?a:b):t.nopub}">${esq(a,'a',ga)}<div class="mid"><b>${est?t.estelar:''}${mod}</b>${no?`<em>${no}</em>`:''}</div>${esq(b,'b',gb)}</li>`;
+  return `<li class="pelea${est?' estelar':''}" aria-label="${a} ${t.contra} ${b}, ${mod}. ${g?t.ganaA+(g==='a'?a:b):t.nopub}">${esq(a,'a',ga,fa)}<div class="mid"><b>${est?t.estelar:''}${mod}</b>${no?`<em>${no}</em>`:''}</div>${esq(b,'b',gb,fb)}</li>`;
 }).join(''); }
 pintarCombates();
 
@@ -654,7 +654,7 @@ function verVelada(n,centrar){ VSEL=n; const v=VELADAS.find(x=>x[0]===n), t=TXV[
   if(fut) c.innerHTML=`<div class="cartel-futuro"><span class="cf-sup">FIGHT TO BE THE NUMBER ONE</span><img src="img/logo.webp" alt=""><b class="cf-num">${n}</b><span class="cf-candado"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span class="cf-pie">F2ONE ${n}<small>${t.anunciar.toUpperCase()}</small></span></div>`;
   else if(CARTELES[n]) c.innerHTML='<i></i>';
   if(c.innerHTML){ c.style.animation='none'; void c.offsetWidth; c.style.animation=''; }
-  const fo=$('#vel-fondo'); fo.classList.toggle('futuro',fut); fo.style.backgroundImage=fut?'':`url('${CARTELES[n]||'img/ig-patada-alta.webp'}')`; fo.classList.toggle('gris',!fut&&!CARTELES[n]);
+  const fo=$('#vel-fondo'); fo.classList.toggle('futuro',fut); fo.style.backgroundImage=fut||!CARTELES[n]?'':`url('${CARTELES[n]}')`; fo.classList.toggle('gris',!fut&&!CARTELES[n]);
   $$('#riel .nodo').forEach(b=>b.setAttribute('aria-selected',+b.dataset.n===n));
   const k=VELADAS.findIndex(x=>x[0]===n); $('#vel-ant').disabled=k===0; $('#vel-sig').disabled=k===VELADAS.length-1;
   if(centrar){ const b=$(`#riel .nodo[data-n="${n}"]`), caja=$('#riel-caja'); if(b&&caja.scrollWidth>caja.clientWidth) caja.scrollTo({left:b.offsetLeft-caja.clientWidth/2,behavior:'smooth'}); }
