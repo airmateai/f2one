@@ -562,26 +562,24 @@ pintarReloj(); setInterval(pintarReloj,1000);
 /* Cartel F2ONE 12 (publicado por @fight2one). [país, foto] */
 const F={Reyes:'NIC','Ken Sekeletu':'ZAM','de Oliveira':'BRA','Zebenzui Ruiz':'ESP',Luna:'HON','Martín Alonso':'ESP','Eduardo Catalin':'ROU','Mohamed Echchad':'MAR',Zhvania:'GEO','Hernández':'ESP','Victor Córdoba':'ESP',Zamoudi:'MAR',Cabrera:'ESP','Maikel Rodríguez':'ESP',Reina:'ESP','Gabriel Bello':'ESP',Trujillo:'ESP','Dario Boyd':'ESP','Brian Soliana':'NED',Delgado:'ESP'};
 // [esquina A, esquina B, modalidad, nota, ganador 'a'|'b'|'' (no publicado), estelar]
-// [esquina A, esquina B, modalidad, nota, ganador 'a'|'b'|'' (no publicado), estelar, foto A, foto B] · una foto distinta en cada combate
+// [esquina A, esquina B, modalidad, nota, ganador 'a'|'b'|'' (no publicado), estelar]
 const C=[
-  ['Reyes','Ken Sekeletu','MMA','Título mundial peso pluma','b',1,'p-reyes','p-sekeletu'],
-  ['de Oliveira','Zebenzui Ruiz','MMA','Coestelar','b',0,'p-oliveira','p-ruiz'],
-  ['Eduardo Catalin','Mohamed Echchad','K1','Final del Grand Prix','a',0,'eduardo-catalin','mohamed-echchad'],
-  ['Luna','Martín Alonso','MMA','','b',0,'p-luna','p-alonso'],
-  ['Delgado','Brian Soliana','MMA','Por KO','b',0,'p-delgado','p-soliana'],
-  ['Victor Córdoba','Zamoudi','K1','','a',0,'p-cordoba','p-zamoudi'],
-  ['Cabrera','Maikel Rodríguez','K1','','b',0,'p-cabrera','p-maikel'],
-  ['Reina','Gabriel Bello','MMA','','b',0,'p-reina','p-bello'],
-  ['Trujillo','Dario Boyd','MMA','','b',0,'p-trujillo','p-boyd'],
-  ['Zhvania','Eduardo Catalin','K1','Semifinal Grand Prix','b',0,'p-zhvania','p-catalin-semi'],
-  ['Mohamed Echchad','Hernández','K1','Semifinal Grand Prix','a',0,'p-echchad-semi','p-hernandez'],
+  ['Reyes','Ken Sekeletu','MMA','Título mundial peso pluma','b',1],
+  ['de Oliveira','Zebenzui Ruiz','MMA','Coestelar','b',0],
+  ['Eduardo Catalin','Mohamed Echchad','K1','Final del Grand Prix','a',0],
+  ['Luna','Martín Alonso','MMA','','b',0],
+  ['Delgado','Brian Soliana','MMA','Por KO','b',0],
+  ['Victor Córdoba','Zamoudi','K1','','a',0],
+  ['Cabrera','Maikel Rodríguez','K1','','b',0],
+  ['Reina','Gabriel Bello','MMA','','b',0],
+  ['Trujillo','Dario Boyd','MMA','','b',0],
+  ['Zhvania','Eduardo Catalin','K1','Semifinal Grand Prix','b',0],
+  ['Mohamed Echchad','Hernández','K1','Semifinal Grand Prix','a',0],
 ];
-const ini=n=>n.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
-const cara=(n,f)=>f?`<img class="hx" src="img/${f}.webp" alt="" width="420" height="420" loading="lazy">`:`<span class="hx" aria-hidden="true">${ini(n)}</span>`;
-const esq=(n,lado,g,f)=>`<div class="esq ${lado}${g==='p'?' pierde':''}">${cara(n,f)}<div><b>${n}</b><small>${lado==='b'&&g==='w'?`<span class="gana">${tx().gana}</span>`:''}${F[n]}${lado==='a'&&g==='w'?` <span class="gana">${tx().gana}</span>`:''}</small></div></div>`;
-function pintarCombates(){ const t=tx(); $('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est,fa,fb])=>{
+const esq=(n,lado,g)=>`<div class="esq ${lado}${g==='p'?' pierde':''}"><div><b>${n}</b><small>${lado==='b'&&g==='w'?`<span class="gana">${tx().gana}</span>`:''}${F[n]}${lado==='a'&&g==='w'?` <span class="gana">${tx().gana}</span>`:''}</small></div></div>`;
+function pintarCombates(){ const t=tx(); $('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est])=>{
   const ga=g?(g==='a'?'w':'p'):'', gb=g?(g==='b'?'w':'p'):'', no=nota?(t.notas[nota]||nota):'';
-  return `<li class="pelea${est?' estelar':''}" aria-label="${a} ${t.contra} ${b}, ${mod}. ${g?t.ganaA+(g==='a'?a:b):t.nopub}">${esq(a,'a',ga,fa)}<div class="mid"><b>${est?t.estelar:''}${mod}</b>${no?`<em>${no}</em>`:''}</div>${esq(b,'b',gb,fb)}</li>`;
+  return `<li class="pelea${est?' estelar':''}" aria-label="${a} ${t.contra} ${b}, ${mod}. ${g?t.ganaA+(g==='a'?a:b):t.nopub}">${esq(a,'a',ga)}<div class="mid"><b>${est?t.estelar:''}${mod}</b>${no?`<em>${no}</em>`:''}</div>${esq(b,'b',gb)}</li>`;
 }).join(''); }
 pintarCombates();
 
