@@ -59,6 +59,8 @@ a{color:inherit}
 .nav nav a{color:var(--gris);text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-left:24px}
 .nav nav a:hover{color:var(--blanco)}
 .nav .btn{min-height:40px;padding:0 18px;font-size:12px}
+.idioma{min-width:44px;height:40px;padding:0 10px;border:1.5px solid var(--linea2);border-radius:2px;background:transparent;color:var(--blanco);font:inherit;font-size:12px;font-weight:800;letter-spacing:.12em;cursor:pointer}
+.idioma:hover{border-color:var(--blanco)}
 @media(max-width:900px){.nav nav{display:none}}
 @media(max-width:600px){.nav .btn{display:none}}
 
@@ -186,14 +188,16 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 .carril img,.carril video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* Temporada */
-.temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
-.temporada li{padding:22px 18px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
-.temporada li b{font-stretch:75%;font-weight:900;font-size:56px;line-height:.9;color:var(--gris2)}
+.temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
+.temporada li{padding:18px 14px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.temporada li small{display:block;margin-top:3px;font-size:11.5px;color:var(--gris2);font-weight:600;line-height:1.3}
+.temporada li b{font-stretch:75%;font-weight:900;font-size:clamp(38px,4vw,56px);line-height:.9;color:var(--gris2)}
 .temporada li span{font-size:13px;color:var(--gris);font-weight:700}
 .temporada li.ya b{color:var(--blanco)}
 .temporada li.prox b{color:var(--oro)}
 .temporada li.prox span{color:var(--blanco)}
-@media(max-width:760px){.temporada{grid-template-columns:1fr 1fr}.temporada li:first-child{grid-column:1/-1}}
+.temporada li.prox{background:rgba(212,167,44,.08)}
+@media(max-width:900px){.temporada{grid-template-columns:repeat(4,1fr)}.temporada li{min-height:120px;padding:14px 10px}.temporada li span{font-size:12px}}
 
 /* La Grada */
 .grada{position:relative;isolation:isolate;background:#000}
@@ -211,8 +215,8 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 @media(max-width:860px){.grada .wrap{grid-template-columns:1fr}}
 
 /* Patrocina / pelea */
-.dos{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.panel{position:relative;overflow:hidden;min-height:480px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.dos{display:grid;grid-template-columns:1fr;gap:4px}
+.panel{position:relative;overflow:hidden;min-height:560px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
 .panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .panel::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#000 25%,rgba(0,0,0,.25))}
 .panel h3{font-size:clamp(38px,4.6vw,64px);margin:10px 0 12px}
@@ -269,9 +273,10 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
   <div class="wrap">
     <a class="marca" href="#inicio" aria-label="Fight2One, inicio"><img src="img/logo.webp" alt="" width="34" height="34"><b>FIGHT2ONE</b></a>
     <nav aria-label="Principal">
-      <a href="#proxima">F2ONE 13</a><a href="#cartel">Resultados</a><a href="#momentos">Momentos</a><a href="#patrocina">Patrocina</a>
+      <a href="#proxima">F2ONE 13</a><a href="#cartel" data-en="Results">Resultados</a><a href="#momentos" data-en="Highlights">Momentos</a><a href="#patrocina" data-en="Sponsor">Patrocina</a>
     </nav>
-    <a class="btn btn-oro" href="#grada">Avísame</a>
+    <button class="idioma" id="idioma" type="button" aria-label="English">EN</button>
+    <a class="btn btn-oro" href="#grada" data-en="Notify me">Avísame</a>
   </div>
 </header>
 
@@ -286,25 +291,25 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
     <video class="solo" data-src="vid/v1.mp4" poster="vid/v1.webp" muted loop playsinline preload="none"></video>
   </div>
   <div class="wrap">
-    <span class="eti entra" style="animation-delay:.1s">Próxima velada</span>
+    <span class="eti entra" style="animation-delay:.1s" data-en="Next fight night">Próxima velada</span>
     <h1 class="cond" id="h-heroe"><span class="linea"><span style="animation-delay:.15s">F2ONE <span class="o">13</span></span></span></h1>
-    <p class="fecha entra" style="animation-delay:.45s"><span>Sábado 13 de marzo</span><span>Tenerife</span><span>MMA · Muay Thai · K1</span></p>
+    <p class="fecha entra" style="animation-delay:.45s"><span data-en="Saturday 13 March">Sábado 13 de marzo</span><span>Santiago Martín · Tenerife</span><span>MMA · Muay Thai · K1</span></p>
     <div class="heroe-pie entra" style="animation-delay:.65s">
       <div>
-        <p class="reloj-tit">Faltan</p>
+        <p class="reloj-tit" data-en="Countdown">Faltan</p>
         <div class="reloj" role="timer" aria-label="Tiempo que falta para la F2ONE 13">
-          <div><b id="r-d">--</b><small>Días</small></div><div><b id="r-h">--</b><small>Horas</small></div><div><b id="r-m">--</b><small>Min</small></div><div><b id="r-s">--</b><small>Seg</small></div>
+          <div><b id="r-d">--</b><small data-en="Days">Días</small></div><div><b id="r-h">--</b><small data-en="Hours">Horas</small></div><div><b id="r-m">--</b><small>Min</small></div><div><b id="r-s">--</b><small data-en="Sec">Seg</small></div>
         </div>
       </div>
       <div class="alta">
-        <p class="tit">Te avisamos del cartel y del día que salen las entradas.</p>
+        <p class="tit" data-en="We’ll tell you the fight card and the day tickets go on sale.">Te avisamos del cartel y del día que salen las entradas.</p>
         <form class="capta js-capta" data-donde="heroe" novalidate>
           <label class="sr" for="h-email">Tu email</label>
-          <input id="h-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" required>
-          <button class="btn btn-oro" type="submit">Avísame</button>
+          <input id="h-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" data-en-ph="Your email" required>
+          <button class="btn btn-oro" type="submit" data-en="Notify me">Avísame</button>
         </form>
         <p class="capta-err" role="alert"></p>
-        <p class="micro">Gratis. Pocos emails y te das de baja con un clic.</p>
+        <p class="micro" data-en="Free. Few emails, unsubscribe in one click.">Gratis. Pocos emails y te das de baja con un clic.</p>
       </div>
     </div>
   </div>
@@ -313,10 +318,10 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 <main id="main">
 <section class="cifras" aria-label="Fight2One en cifras">
   <ul class="wrap rv">
-    <li><b>12</b><span>Veladas</span></li>
-    <li><b>11</b><span>Combates en la F2ONE 12</span></li>
-    <li><b>9</b><span>Países en una noche</span></li>
-    <li><b>11K</b><span>Seguidores en Instagram</span></li>
+    <li><b>12</b><span data-en="Fight nights">Veladas</span></li>
+    <li><b>11</b><span data-en="Fights at F2ONE 12">Combates en la F2ONE 12</span></li>
+    <li><b>9</b><span data-en="Countries in one night">Países en una noche</span></li>
+    <li><b>11K</b><span data-en="Instagram followers">Seguidores en Instagram</span></li>
   </ul>
 </section>
 
@@ -324,15 +329,16 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
   <div class="prox-foto foto-rv"><img src="img/ig-golpe.webp" alt="Puñetazo en la cara en un combate de la F2ONE 12" width="1800" height="1199" loading="lazy" style="object-position:30% 30%"></div>
   <div class="prox-tx">
     <span class="eti">13 · 03 · 2027</span>
-    <h2 class="cond tit-rv" id="h-prox"><span class="linea"><span>Vuelve</span></span><span class="linea"><span>Fight2One</span></span></h2>
-    <p>El cartel y las entradas se anuncian muy pronto. Quien está apuntado se entera el primero, por email.</p>
+    <h2 class="cond tit-rv" id="h-prox"><span class="linea"><span data-en="Fight2One">Vuelve</span></span><span class="linea"><span data-en="is back">Fight2One</span></span></h2>
+    <p data-en="The fight card and tickets will be announced very soon. Those on the list hear first, by email.">El cartel y las entradas se anuncian muy pronto. Quien está apuntado se entera el primero, por email.</p>
     <ul class="ficha">
-      <li><span>Fecha</span>Sábado 13 de marzo</li>
-      <li><span>Cartel</span>Por anunciar</li>
-      <li><span>Entradas</span><b id="ficha-entradas" style="font-weight:700">Por anunciar</b></li>
+      <li data-en="&lt;span&gt;Date&lt;/span&gt;Saturday 13 March"><span>Fecha</span>Sábado 13 de marzo</li>
+      <li data-en="&lt;span&gt;Venue&lt;/span&gt;Pabellón Santiago Martín"><span>Lugar</span>Pabellón Santiago Martín</li>
+      <li data-en="&lt;span&gt;Fight card&lt;/span&gt;To be announced"><span>Cartel</span>Por anunciar</li>
+      <li><span data-en="Tickets">Entradas</span><b id="ficha-entradas" data-en="To be announced" style="font-weight:700">Por anunciar</b></li>
     </ul>
     <div class="ctas">
-      <a class="btn btn-oro" href="#grada">Avísame</a>
+      <a class="btn btn-oro" href="#grada" data-en="Notify me">Avísame</a>
       <a class="btn btn-lin js-entradas" href="#grada" hidden>Entradas</a>
     </div>
   </div>
@@ -341,21 +347,21 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 <section class="sec" id="cartel" aria-labelledby="h-cartel">
   <div class="wrap">
     <div class="cab">
-      <div><span class="eti">17 oct 2026 · Pabellón Quico Cabrera</span><h2 class="cond tit-rv" id="h-cartel"><span class="linea"><span>Resultados</span></span><span class="linea"><span>F2ONE 12</span></span></h2></div>
-      <p>Once combates, un título mundial de MMA y el primer Grand Prix de K1 de Fight2One.</p>
+      <div><span class="eti" data-en="17 Oct 2026 · Pabellón Quico Cabrera">17 oct 2026 · Pabellón Quico Cabrera</span><h2 class="cond tit-rv" id="h-cartel"><span class="linea"><span data-en="Results">Resultados</span></span><span class="linea"><span>F2ONE 12</span></span></h2></div>
+      <p data-en="Eleven fights, an MMA world title and the first K1 Grand Prix in Fight2One history.">Once combates, un título mundial de MMA y el primer Grand Prix de K1 de Fight2One.</p>
     </div>
     <ol class="cartel" id="lista-combates" aria-label="Combates de la F2ONE 12"></ol>
-    <p class="nota-pub">Resultados tal como los publicó @fight2one.</p>
+    <p class="nota-pub" data-en="Results as published by @fight2one.">Resultados tal como los publicó @fight2one.</p>
   </div>
 </section>
 
 <section class="sec" id="grandprix" aria-labelledby="h-gp" style="padding-top:0">
   <div class="wrap gp">
-    <figure class="campeon foto-rv"><img src="img/eduardo-catalin.webp" alt="Eduardo Catalin, campeón del Grand Prix de K1" width="420" height="420" loading="lazy"><figcaption><span class="eti">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
+    <figure class="campeon foto-rv"><img src="img/eduardo-catalin.webp" alt="Eduardo Catalin, campeón del Grand Prix de K1" width="420" height="420" loading="lazy"><figcaption><span class="eti" data-en="Champion">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
     <div>
       <span class="eti">Grand Prix K1</span>
-      <h2 class="cond" id="h-gp" style="font-size:clamp(46px,7vw,104px);margin:10px 0 16px">Cuatro<br>peleadores,<br>una noche</h2>
-      <p style="color:var(--gris);margin:0;max-width:460px">Semifinales y final el mismo día. Rumanía, Marruecos, Georgia y España.</p>
+      <h2 class="cond" id="h-gp" style="font-size:clamp(46px,7vw,104px);margin:10px 0 16px" data-en="Four<br>fighters,<br>one night">Cuatro<br>peleadores,<br>una noche</h2>
+      <p style="color:var(--gris);margin:0;max-width:460px" data-en="Semi-finals and final on the same night. Romania, Morocco, Georgia and Spain.">Semifinales y final el mismo día. Rumanía, Marruecos, Georgia y España.</p>
       <div class="llaves rv">
         <div class="semis">
           <div class="llave"><small>Semifinal 1</small><div>Zhvania · GEO</div><div class="g">Catalin · ROU</div></div>
@@ -368,7 +374,7 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 </section>
 
 <section class="sec" id="momentos" aria-labelledby="h-mom" style="padding-top:0">
-  <div class="wrap cab" style="margin-bottom:24px"><div><span class="eti">F2ONE 12</span><h2 class="cond tit-rv" id="h-mom"><span class="linea"><span>Momentos</span></span></h2></div><p><a href="https://www.instagram.com/fight2one/" target="_blank" rel="noopener" style="color:var(--blanco)">Más en @fight2one →</a></p></div>
+  <div class="wrap cab" style="margin-bottom:24px"><div><span class="eti">F2ONE 12</span><h2 class="cond tit-rv" id="h-mom"><span class="linea"><span data-en="Highlights">Momentos</span></span></h2></div><p><a href="https://www.instagram.com/fight2one/" target="_blank" rel="noopener" style="color:var(--blanco)" data-en="More on @fight2one →">Más en @fight2one →</a></p></div>
   <div class="carril" id="carril">
     <figure><video data-src="vid/v2.mp4" poster="vid/v2.webp" muted loop playsinline preload="none" aria-label="Patada alta"></video></figure>
     <figure class="foto"><img src="img/ig-patada-cabeza.webp" alt="Patada a la cabeza en la F2ONE 12" loading="lazy" width="1800" height="1200"></figure>
@@ -383,13 +389,24 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 
 <section class="sec" id="temporada" aria-labelledby="h-temp" style="padding-top:0">
   <div class="wrap">
-    <div class="cab"><div><span class="eti">Temporada</span><h2 class="cond tit-rv" id="h-temp"><span class="linea"><span>Más veladas</span></span></h2></div><p>Fight2One crece: más veladas al año y más peleadores de fuera.</p></div>
+    <div class="cab"><div><span class="eti" data-en="Since 2023">Desde 2023</span><h2 class="cond tit-rv" id="h-temp"><span class="linea"><span data-en="Every fight night">Todas las veladas</span></span></h2></div><p data-en="Twelve fight nights in Tenerife since March 2023, and the 13th is coming. More nights a year and more international fighters.">Doce veladas en Tenerife desde marzo de 2023 y llega la 13. Cada año más veladas y más peleadores de fuera.</p></div>
     <ol class="temporada rv">
-      <li class="ya"><b>12</b><span>17 oct 2026 · Celebrada</span></li>
-      <li class="prox"><b>13</b><span>13 de marzo</span></li>
-      <li><b>14</b><span>Por anunciar</span></li>
-      <li><b>15</b><span>Por anunciar</span></li>
-      <li><b>16</b><span>Por anunciar</span></li>
+      <li class="ya"><b>1</b><span data-en="18 Mar 2023">18 mar 2023</span><small>Pancho Camurria</small></li>
+      <li class="ya"><b>2</b><span data-en="13 May 2023">13 may 2023</span><small>Pancho Camurria</small></li>
+      <li class="ya"><b>3</b><span data-en="30 Sep 2023">30 sep 2023</span><small>Juan Ríos Tejera</small></li>
+      <li class="ya"><b>4</b><span data-en="18 Nov 2023">18 nov 2023</span><small>Pancho Camurria</small></li>
+      <li class="ya"><b>5</b><span data-en="16 Mar 2024">16 mar 2024</span><small>Santiago Martín</small></li>
+      <li class="ya"><b>6</b><span data-en="1 Jun 2024">1 jun 2024</span><small>Juan Ríos Tejera</small></li>
+      <li class="ya"><b>7</b><span data-en="Done">Celebrada</span></li>
+      <li class="ya"><b>8</b><span data-en="8 Feb 2025">8 feb 2025</span><small>Juan Ríos Tejera</small></li>
+      <li class="ya"><b>9</b><span data-en="30 May 2025">30 may 2025</span><small>Santiago Martín</small></li>
+      <li class="ya"><b>10</b><span data-en="27 Sep 2025">27 sep 2025</span><small>Santiago Martín</small></li>
+      <li class="ya"><b>11</b><span data-en="23 May 2026">23 may 2026</span><small>Santiago Martín</small></li>
+      <li class="ya"><b>12</b><span data-en="17 Oct 2026">17 oct 2026</span><small>Quico Cabrera</small></li>
+      <li class="prox"><b>13</b><span data-en="13 Mar 2027">13 mar 2027</span><small>Santiago Martín</small></li>
+      <li><b>14</b><span data-en="To be announced">Por anunciar</span></li>
+      <li><b>15</b><span data-en="To be announced">Por anunciar</span></li>
+      <li><b>16</b><span data-en="To be announced">Por anunciar</span></li>
     </ol>
   </div>
 </section>
@@ -398,46 +415,39 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
   <img src="img/ig-patada-alta.webp" alt="" width="1800" height="1200" loading="lazy">
   <div class="wrap">
     <div>
-      <span class="eti">La Grada de Fight2One</span>
-      <h2 class="cond tit-rv" id="h-grada"><span class="linea"><span>Entérate</span></span><span class="linea"><span>el primero</span></span></h2>
-      <p>Las veladas se anuncian primero por email.</p>
+      <span class="eti" data-en="Fight2One’s crowd">La Grada de Fight2One</span>
+      <h2 class="cond tit-rv" id="h-grada"><span class="linea"><span data-en="Be the">Entérate</span></span><span class="linea"><span data-en="first to know">el primero</span></span></h2>
+      <p data-en="Fight nights are announced by email first.">Las veladas se anuncian primero por email.</p>
       <ul class="ventajas">
-        <li><b>Entradas:</b> te escribimos el mismo día que salen a la venta.</li>
-        <li><b>Cartel:</b> los combates y los peleadores, en cuanto se cierren.</li>
-        <li><b>Sin spam:</b> pocos emails y te das de baja cuando quieras.</li>
+        <li data-en="&lt;b&gt;Tickets:&lt;/b&gt; we email you the day they go on sale."><b>Entradas:</b> te escribimos el mismo día que salen a la venta.</li>
+        <li data-en="&lt;b&gt;Fight card:&lt;/b&gt; the bouts and fighters as soon as they’re confirmed."><b>Cartel:</b> los combates y los peleadores, en cuanto se cierren.</li>
+        <li data-en="&lt;b&gt;No spam:&lt;/b&gt; few emails, unsubscribe any time."><b>Sin spam:</b> pocos emails y te das de baja cuando quieras.</li>
       </ul>
     </div>
     <div class="caja rv">
       <div id="form-lista">
-        <label for="f-email">Tu email</label>
+        <label for="f-email" data-en="Your email">Tu email</label>
         <form class="capta js-capta" data-donde="grada" novalidate>
-          <input id="f-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="nombre@email.com" required>
-          <button class="btn btn-oro" type="submit">Apuntarme</button>
+          <input id="f-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="nombre@email.com" data-en-ph="name@email.com" required>
+          <button class="btn btn-oro" type="submit" data-en="Sign me up">Apuntarme</button>
         </form>
         <p class="capta-err" role="alert"></p>
-        <p class="micro">Gratis. Solo para el cartel, los combates y las entradas.</p>
+        <p class="micro" data-en="Free. Only for the fight card, the bouts and tickets.">Gratis. Solo para el cartel, los combates y las entradas.</p>
       </div>
-      <div class="dentro" id="dentro" hidden><span class="eti">Hecho</span><b class="cond">Estás dentro</b><p>Te avisamos del cartel y de las entradas de la F2ONE 13.</p>
-        <a class="btn btn-lin js-compartir" href="#" target="_blank" rel="noopener">Pásaselo a un amigo</a></div>
+      <div class="dentro" id="dentro" hidden><span class="eti" data-en="Done">Hecho</span><b class="cond" data-en="You’re in">Estás dentro</b><p data-en="We’ll let you know about the F2ONE 13 fight card and tickets.">Te avisamos del cartel y de las entradas de la F2ONE 13.</p>
+        <a class="btn btn-lin js-compartir" href="#" target="_blank" rel="noopener" data-en="Send it to a friend">Pásaselo a un amigo</a></div>
     </div>
   </div>
 </section>
 
-<section id="patrocina" aria-label="Patrocinio y peleadores">
+<section id="patrocina" aria-label="Patrocinio">
   <div class="dos">
     <article class="panel">
       <img src="img/ig-marcas.webp" alt="" width="1800" height="1200" loading="lazy">
-      <span class="eti">Patrocinio</span>
-      <h3 class="cond">Tu marca<br>en la jaula</h3>
-      <p>El pabellón lleno, la retransmisión y nuestras redes.</p>
-      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20quiero%20el%20dossier%20de%20patrocinio%20de%20Fight2One" target="_blank" rel="noopener">Pedir dossier</a></div>
-    </article>
-    <article class="panel" id="pelea">
-      <img src="img/ig-suelo.webp" alt="" width="1800" height="1200" loading="lazy">
-      <span class="eti">Peleadores y mánagers</span>
-      <h3 class="cond">¿Quieres<br>pelear?</h3>
-      <p>MMA, Muay Thai y K1. Mándanos tu récord, tu peso y tus vídeos.</p>
-      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20soy%20peleador%2Fm%C3%A1nager%20y%20quiero%20pelear%20en%20Fight2One.%20Modalidad%3A%20%20Peso%3A%20%20R%C3%A9cord%3A%20" target="_blank" rel="noopener">Enviar perfil</a></div>
+      <span class="eti" data-en="Sponsorship">Patrocinio</span>
+      <h3 class="cond" data-en="Your brand<br>in the cage">Tu marca<br>en la jaula</h3>
+      <p data-en="A packed arena, the live broadcast and our social media.">El pabellón lleno, la retransmisión y nuestras redes.</p>
+      <div><a class="btn btn-oro" href="https://wa.me/34663942172?text=Hola%2C%20quiero%20el%20dossier%20de%20patrocinio%20de%20Fight2One" target="_blank" rel="noopener" data-en="Get the deck">Pedir dossier</a></div>
     </article>
   </div>
 </section>
@@ -448,11 +458,11 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
     <p class="lema">Fight to be the number one</p>
     <a class="marca" href="#inicio" aria-label="Fight2One, volver arriba"><img src="img/logo.webp" alt="" width="34" height="34"><b>FIGHT2ONE</b></a>
     <nav aria-label="Redes"><a href="https://www.instagram.com/fight2one/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/34663942172" target="_blank" rel="noopener">WhatsApp</a></nav>
-    <p style="margin:0;width:100%">© Fight2One · Tenerife · Web por <a href="https://airmate.es">Airmate</a></p>
+    <p style="margin:0;width:100%" data-en="© Fight2One · Tenerife · Website by &lt;a href=&quot;https://airmate.es&quot;&gt;Airmate&lt;/a&gt;">© Fight2One · Tenerife · Web por <a href="https://airmate.es">Airmate</a></p>
   </div>
 </footer>
 
-<div class="barra" id="barra"><a class="btn btn-oro" href="#grada">Avísame de las entradas</a></div>
+<div class="barra" id="barra"><a class="btn btn-oro" href="#grada" data-en="Notify me about tickets">Avísame de las entradas</a></div>
 
 <script>
 /* Enlace de la plataforma de entradas: cuando salgan, poner aquí la URL y aparecen los botones «Comprar entradas» */
@@ -467,13 +477,31 @@ const lee=k=>{ try{ return localStorage.getItem(k); }catch(e){ return null; } };
 const leeS=k=>{ try{ return sessionStorage.getItem(k); }catch(e){ return null; } };
 const guardaS=(k,v)=>{ try{ sessionStorage.setItem(k,v); }catch(e){} };
 
+/* Idioma: ?lang=en|es, la elección guardada o el idioma del navegador (español → ES, el resto → EN) */
+let LANG=(()=>{ const q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='es') return q;
+  const g=lee('f2o_lang'); if(g==='en'||g==='es') return g; return /^es\b/i.test(navigator.language||'es')?'es':'en'; })();
+const TX={
+  es:{gana:'GANA',estelar:'Estelar · ',notas:{},nopub:'Resultado no publicado',contra:'contra',ganaA:'Gana ',enviando:'Enviando…',
+      malEmail:'Revisa el email, parece que falta algo.',fallo:'No se ha podido apuntar ahora mismo. Prueba en un momento.',
+      ok:'Estás dentro.<span>Te avisamos del cartel y de las entradas de la F2ONE 13.</span>',
+      compartir:'Me he apuntado para que me avisen de las entradas de la F2ONE 13 (13 de marzo). Apúntate y vamos juntos 👊 ',
+      entradas:'Comprar entradas',aLaVenta:'A la venta',otro:'English',boton:'EN'},
+  en:{gana:'WIN',estelar:'Main event · ',nopub:'Result not published',contra:'vs',ganaA:'Winner: ',enviando:'Sending…',
+      notas:{'Título mundial peso pluma':'Featherweight world title','Coestelar':'Co-main event','Final del Grand Prix':'Grand Prix final','Por KO':'By KO','Semifinal Grand Prix':'Grand Prix semi-final'},
+      malEmail:'Check your email, something seems to be missing.',fallo:'We couldn’t sign you up right now. Please try again in a moment.',
+      ok:'You’re in.<span>We’ll let you know about the F2ONE 13 fight card and tickets.</span>',
+      compartir:'I signed up to get notified when F2ONE 13 tickets go on sale (13 March, Tenerife). Sign up and let’s go together 👊 ',
+      entradas:'Buy tickets',aLaVenta:'On sale',otro:'Español',boton:'ES'}
+};
+const tx=()=>TX[LANG];
+
 /* De dónde viene la visita (?o=ig en el enlace de la bio de Instagram) */
 const ORIGEN=(()=>{ const q=new URLSearchParams(location.search), o=q.get('o')||q.get('utm_source');
   if(o){ guardaS('f2o_origen',o); return o; }
   return leeS('f2o_origen')||(/instagram/i.test(document.referrer)?'instagram':'web'); })();
 
 /* Entradas */
-if(ENTRADAS_URL){ $$('.js-entradas').forEach(a=>{ a.hidden=false; a.href=ENTRADAS_URL; a.target='_blank'; a.rel='noopener'; a.textContent='Comprar entradas'; }); $('#ficha-entradas').textContent='A la venta'; }
+if(ENTRADAS_URL){ $$('.js-entradas').forEach(a=>{ a.hidden=false; a.href=ENTRADAS_URL; a.target='_blank'; a.rel='noopener'; a.dataset.es='Comprar entradas'; a.dataset.en='Buy tickets'; }); const fe=$('#ficha-entradas'); fe.dataset.es='A la venta'; fe.dataset.en='On sale'; }
 
 /* Vídeos: solo se cargan los que están a la vista (el del héroe solo en el móvil) */
 function reproducir(v){ if(!v.src) v.src=v.dataset.src; v.play().catch(()=>{}); }
@@ -508,11 +536,12 @@ const C=[
 ];
 const ini=n=>n.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
 const cara=n=>F[n][1]?`<img class="hx" src="img/${F[n][1]}.webp" alt="" width="420" height="420" loading="lazy">`:`<span class="hx" aria-hidden="true">${ini(n)}</span>`;
-const esq=(n,lado,g)=>`<div class="esq ${lado}${g==='p'?' pierde':''}">${cara(n)}<div><b>${n}</b><small>${lado==='b'&&g==='w'?'<span class="gana">GANA</span>':''}${F[n][0]}${lado==='a'&&g==='w'?' <span class="gana">GANA</span>':''}</small></div></div>`;
-$('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est])=>{
-  const ga=g?(g==='a'?'w':'p'):'', gb=g?(g==='b'?'w':'p'):'';
-  return `<li class="pelea${est?' estelar':''}" aria-label="${a} contra ${b}, ${mod}. ${g?'Gana '+(g==='a'?a:b):'Resultado no publicado'}">${esq(a,'a',ga)}<div class="mid"><b>${est?'Estelar · ':''}${mod}</b>${nota?`<em>${nota}</em>`:''}</div>${esq(b,'b',gb)}</li>`;
-}).join('');
+const esq=(n,lado,g)=>`<div class="esq ${lado}${g==='p'?' pierde':''}">${cara(n)}<div><b>${n}</b><small>${lado==='b'&&g==='w'?`<span class="gana">${tx().gana}</span>`:''}${F[n][0]}${lado==='a'&&g==='w'?` <span class="gana">${tx().gana}</span>`:''}</small></div></div>`;
+function pintarCombates(){ const t=tx(); $('#lista-combates').innerHTML=C.map(([a,b,mod,nota,g,est])=>{
+  const ga=g?(g==='a'?'w':'p'):'', gb=g?(g==='b'?'w':'p'):'', no=nota?(t.notas[nota]||nota):'';
+  return `<li class="pelea${est?' estelar':''}" aria-label="${a} ${t.contra} ${b}, ${mod}. ${g?t.ganaA+(g==='a'?a:b):t.nopub}">${esq(a,'a',ga)}<div class="mid"><b>${est?t.estelar:''}${mod}</b>${no?`<em>${no}</em>`:''}</div>${esq(b,'b',gb)}</li>`;
+}).join(''); }
+pintarCombates();
 
 /* Entradas al hacer scroll */
 if('IntersectionObserver' in window&&!RED){
@@ -530,10 +559,11 @@ addEventListener('scroll',()=>{
 
 /* La Grada: alta en la base de datos de Fight2One (mismo envío desde el héroe y la sección) */
 const URL_WEB=location.origin+location.pathname;
-$$('.js-compartir').forEach(a=>a.href='https://wa.me/?text='+encodeURIComponent('Me he apuntado para que me avisen de las entradas de la F2ONE 13 (13 de marzo). Apúntate y vamos juntos 👊 '+URL_WEB+'?o=amigo'));
+const pintarCompartir=()=>$$('.js-compartir').forEach(a=>a.href='https://wa.me/?text='+encodeURIComponent(tx().compartir+URL_WEB+'?o=amigo'+(LANG==='en'?'&lang=en':'')));
+pintarCompartir();
 const yaDentro=()=>{
   $('#form-lista').hidden=true; $('#dentro').hidden=false;
-  $$('.js-capta').forEach(f=>{ if(f.closest('#form-lista')) return; const ok=document.createElement('div'); ok.className='capta-ok'; ok.innerHTML='Estás dentro.<span>Te avisamos del cartel y de las entradas de la F2ONE 13.</span>'; f.replaceWith(ok); });
+  $$('.js-capta').forEach(f=>{ if(f.closest('#form-lista')) return; const ok=document.createElement('div'); ok.className='capta-ok'; ok.innerHTML=tx().ok; f.replaceWith(ok); });
   $$('.micro,.alta .tit').forEach(m=>m.remove()); $$('.capta-err').forEach(m=>m.textContent='');
   barra.classList.remove('on');
 };
@@ -541,20 +571,32 @@ if(lee('f2o_lista')) yaDentro();
 $$('.js-capta').forEach(form=>form.addEventListener('submit',async e=>{
   e.preventDefault(); const inp=form.querySelector('input'), btn=form.querySelector('button'), err=form.nextElementSibling, txt=btn.textContent;
   err.textContent=''; const email=inp.value.trim();
-  if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email)){ err.textContent='Revisa el email, parece que falta algo.'; inp.focus(); return; }
-  btn.disabled=true; btn.textContent='Enviando…';
+  if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email)){ err.textContent=tx().malEmail; inp.focus(); return; }
+  btn.disabled=true; btn.textContent=tx().enviando;
   try{
     const r=await fetch(SB_URL+'/rest/v1/rpc/f2o_lista_alta',{method:'POST',headers:{'Content-Type':'application/json',apikey:SB_ANON,Authorization:'Bearer '+SB_ANON},
-      body:JSON.stringify({p_email:email,p_nombre:'',p_origen:(ORIGEN+'-'+form.dataset.donde).slice(0,40),p_acepta:true})});
+      body:JSON.stringify({p_email:email,p_nombre:'',p_origen:(ORIGEN+'-'+form.dataset.donde+(LANG==='en'?'-en':'')).slice(0,40),p_acepta:true})});
     const d=r.ok?await r.json():null;
     if(!d||!d.ok) throw new Error(d&&d.error||'http');
     guarda('f2o_lista','1'); navigator.vibrate&&navigator.vibrate(30);
     yaDentro();
   }catch(x){
-    err.textContent=x.message==='email'?'Revisa el email, parece que falta algo.':'No se ha podido apuntar ahora mismo. Prueba en un momento.';
+    err.textContent=x.message==='email'?tx().malEmail:tx().fallo;
     btn.disabled=false; btn.textContent=txt;
   }
 }));
+/* Cambio de idioma */
+const META={ es:{t:'Fight2One · Veladas de MMA, Muay Thai y K1 en Tenerife',d:'Fight2One, las veladas de MMA, Muay Thai y K1 de Tenerife. F2ONE 13 el sábado 13 de marzo. Apúntate y te avisamos en cuanto salgan las entradas.'},
+  en:{t:'Fight2One · MMA, Muay Thai and K1 fight nights in Tenerife',d:'Fight2One, the MMA, Muay Thai and K1 fight nights in Tenerife. F2ONE 13 on Saturday 13 March. Sign up and we’ll tell you when tickets go on sale.'} };
+function ponIdioma(l){ LANG=l; document.documentElement.lang=l;
+  $$('[data-en]').forEach(el=>{ if(el.dataset.es==null) el.dataset.es=el.innerHTML; el.innerHTML=l==='en'?el.dataset.en:el.dataset.es; });
+  $$('[data-en-ph]').forEach(el=>{ if(el.dataset.esPh==null) el.dataset.esPh=el.placeholder; el.placeholder=l==='en'?el.dataset.enPh:el.dataset.esPh; });
+  document.title=META[l].t; $('meta[name=description]').setAttribute('content',META[l].d);
+  const b=$('#idioma'); b.textContent=tx().boton; b.setAttribute('aria-label',tx().otro);
+  pintarCombates(); pintarCompartir(); $$('.capta-ok').forEach(o=>o.innerHTML=tx().ok);
+  $$('.cartel .pelea').forEach(el=>el.classList.add('in')); }
+$('#idioma').onclick=()=>{ ponIdioma(LANG==='en'?'es':'en'); guarda('f2o_lang',LANG); };
+if(LANG==='en') ponIdioma('en');
 </script>
 </body>
 </html>
