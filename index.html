@@ -187,6 +187,49 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 .carril figure.foto{aspect-ratio:3/2}
 .carril img,.carril video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
+/* Línea del tiempo de todas las veladas */
+.vel{position:relative;isolation:isolate;overflow:hidden;min-height:440px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:clamp(28px,4vw,54px);background:#050505;border:1px solid var(--linea)}
+.vel-fondo{position:absolute;inset:-30px;z-index:-1;background:center/cover no-repeat;filter:blur(26px) saturate(1.1) brightness(.35);transform:scale(1.1);transition:background-image .5s,opacity .5s}
+.vel-fondo.gris{filter:grayscale(1) brightness(.22) blur(2px)}
+.vel-tx{position:relative}
+.vel-tx>*{animation:velIn .55s cubic-bezier(.2,.8,.2,1) both}
+.vel-tx>*:nth-child(2){animation-delay:.05s}.vel-tx>*:nth-child(3){animation-delay:.1s}.vel-tx>*:nth-child(4){animation-delay:.15s}.vel-tx>*:nth-child(5){animation-delay:.2s}
+@keyframes velIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.vel-num{display:block;margin:6px 0 0;font-stretch:75%;font-weight:900;font-size:clamp(90px,15vw,210px);line-height:.8;letter-spacing:-.02em}
+.vel-num small{font-size:.32em;letter-spacing:0;color:var(--gris);margin-right:.12em;vertical-align:.95em}
+.vel-num.oro{color:var(--oro)}.vel-num.gris{color:transparent;-webkit-text-stroke:2px var(--gris2)}
+.vel-fecha{margin:18px 0 4px;font-stretch:75%;font-weight:800;font-size:clamp(22px,2.6vw,34px);text-transform:uppercase;line-height:1.05}
+.vel-lugar{margin:0;color:var(--gris);font-weight:700}
+.vel-estado{display:inline-flex;align-items:center;gap:8px;margin:20px 0 0;padding:6px 12px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--linea2)}
+.vel-estado.sig{border-color:var(--oro);color:var(--oro)}
+.vel-estado.sig i{width:7px;height:7px;border-radius:50%;background:var(--rojo);animation:lat 1.2s infinite}
+@keyframes lat{50%{opacity:.3}}
+.vel-tx .btn{margin-top:22px}
+.vel-cartel{width:clamp(180px,22vw,300px);aspect-ratio:4/5;background:center/cover no-repeat;box-shadow:0 30px 60px -20px #000;animation:velCartel .6s cubic-bezier(.2,.8,.2,1) both}
+.vel-cartel:empty{background:none;box-shadow:none}
+@keyframes velCartel{from{opacity:0;transform:translateX(30px) rotate(3deg)}to{opacity:1;transform:rotate(-2deg)}}
+.vel-flechas{position:absolute;right:16px;bottom:16px;display:flex;gap:6px}
+.vel-flechas button{width:42px;height:42px;border:1px solid var(--linea2);background:rgba(0,0,0,.5);color:var(--blanco);font:inherit;font-size:18px;cursor:pointer;border-radius:2px}
+.vel-flechas button:hover{border-color:var(--blanco)}
+.vel-flechas button:disabled{opacity:.3;cursor:default}
+.riel-caja{overflow-x:auto;scrollbar-width:none;margin-top:4px}
+.riel-caja::-webkit-scrollbar{display:none}
+.riel{position:relative;min-width:860px;height:150px;border:1px solid var(--linea);border-top:0;background:#070707}
+.riel::before{content:'';position:absolute;left:3%;right:3%;top:74px;height:2px;background:var(--linea2)}
+.riel .hecho{position:absolute;left:3%;top:74px;height:2px;background:var(--oro);transform-origin:left;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.riel .anio{position:absolute;top:104px;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--gris2)}
+.riel .anio::before{content:'';position:absolute;left:50%;top:-24px;width:1px;height:12px;background:var(--linea2)}
+.riel .hoy{position:absolute;top:44px;transform:translateX(-50%);font-size:10px;font-weight:800;letter-spacing:.18em;color:var(--oro);text-transform:uppercase}
+.riel .hoy::after{content:'';position:absolute;left:50%;top:16px;width:2px;height:22px;background:var(--oro)}
+.nodo{position:absolute;top:75px;transform:translate(-50%,-50%);width:34px;height:34px;display:grid;place-items:center;border:2px solid var(--blanco);border-radius:50%;background:#070707;color:var(--blanco);font:inherit;font-stretch:75%;font-weight:900;font-size:15px;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s,border-color .2s}
+.nodo:hover{transform:translate(-50%,-50%) scale(1.18)}
+.nodo.fut{border-style:dashed;border-color:var(--gris2);color:var(--gris2)}
+.nodo.sig{border-color:var(--oro);color:var(--oro)}
+.nodo.sig::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--oro);animation:onda 1.8s ease-out infinite}
+@keyframes onda{from{opacity:.9;transform:scale(.8)}to{opacity:0;transform:scale(1.5)}}
+.nodo[aria-selected=true]{transform:translate(-50%,-50%) scale(1.35);background:var(--oro);border-color:var(--oro);color:#000;border-style:solid}
+.nodo.alto{top:42px}.nodo.bajo{top:108px}
+@media(max-width:760px){.vel{grid-template-columns:1fr;min-height:0;padding-bottom:76px}.vel-cartel{display:none}.vel-flechas{left:16px;right:auto}}
 /* Temporada */
 .temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
 .temporada li{padding:18px 14px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
@@ -387,27 +430,16 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
   </div>
 </section>
 
-<section class="sec" id="temporada" aria-labelledby="h-temp" style="padding-top:0">
+<section class="sec historia" id="temporada" aria-labelledby="h-temp" style="padding-top:0">
   <div class="wrap">
-    <div class="cab"><div><span class="eti" data-en="Since 2023">Desde 2023</span><h2 class="cond tit-rv" id="h-temp"><span class="linea"><span data-en="Every fight night">Todas las veladas</span></span></h2></div><p data-en="Twelve fight nights in Tenerife since March 2023, and the 13th is coming. More nights a year and more international fighters.">Doce veladas en Tenerife desde marzo de 2023 y llega la 13. Cada año más veladas y más peleadores de fuera.</p></div>
-    <ol class="temporada rv">
-      <li class="ya"><b>1</b><span data-en="18 Mar 2023">18 mar 2023</span><small>Pancho Camurria</small></li>
-      <li class="ya"><b>2</b><span data-en="13 May 2023">13 may 2023</span><small>Pancho Camurria</small></li>
-      <li class="ya"><b>3</b><span data-en="30 Sep 2023">30 sep 2023</span><small>Juan Ríos Tejera</small></li>
-      <li class="ya"><b>4</b><span data-en="18 Nov 2023">18 nov 2023</span><small>Pancho Camurria</small></li>
-      <li class="ya"><b>5</b><span data-en="16 Mar 2024">16 mar 2024</span><small>Santiago Martín</small></li>
-      <li class="ya"><b>6</b><span data-en="1 Jun 2024">1 jun 2024</span><small>Juan Ríos Tejera</small></li>
-      <li class="ya"><b>7</b><span data-en="Done">Celebrada</span></li>
-      <li class="ya"><b>8</b><span data-en="8 Feb 2025">8 feb 2025</span><small>Juan Ríos Tejera</small></li>
-      <li class="ya"><b>9</b><span data-en="30 May 2025">30 may 2025</span><small>Santiago Martín</small></li>
-      <li class="ya"><b>10</b><span data-en="27 Sep 2025">27 sep 2025</span><small>Santiago Martín</small></li>
-      <li class="ya"><b>11</b><span data-en="23 May 2026">23 may 2026</span><small>Santiago Martín</small></li>
-      <li class="ya"><b>12</b><span data-en="17 Oct 2026">17 oct 2026</span><small>Quico Cabrera</small></li>
-      <li class="prox"><b>13</b><span data-en="13 Mar 2027">13 mar 2027</span><small>Santiago Martín</small></li>
-      <li><b>14</b><span data-en="To be announced">Por anunciar</span></li>
-      <li><b>15</b><span data-en="To be announced">Por anunciar</span></li>
-      <li><b>16</b><span data-en="To be announced">Por anunciar</span></li>
-    </ol>
+    <div class="cab"><div><span class="eti" data-en="Since 2023">Desde 2023</span><h2 class="cond tit-rv" id="h-temp"><span class="linea"><span data-en="Every fight night">Todas las veladas</span></span></h2></div><p data-en="Twelve fight nights in Tenerife since March 2023, and the 13th is coming. Tap any night on the timeline.">Doce veladas en Tenerife desde marzo de 2023 y llega la 13. Toca cualquier velada en la línea del tiempo.</p></div>
+    <div class="vel rv" id="vel" aria-live="polite">
+      <div class="vel-fondo" id="vel-fondo" aria-hidden="true"></div>
+      <div class="vel-tx" id="vel-tx"></div>
+      <div class="vel-cartel" id="vel-cartel" aria-hidden="true"></div>
+      <div class="vel-flechas"><button type="button" id="vel-ant" aria-label="Anterior">←</button><button type="button" id="vel-sig" aria-label="Siguiente">→</button></div>
+    </div>
+    <div class="riel-caja" id="riel-caja"><div class="riel" id="riel" role="tablist" aria-label="Veladas de Fight2One"></div></div>
   </div>
 </section>
 
@@ -585,6 +617,40 @@ $$('.js-capta').forEach(form=>form.addEventListener('submit',async e=>{
     btn.disabled=false; btn.textContent=txt;
   }
 }));
+/* Línea del tiempo: datos públicos (Sherdog, Diario de Avisos y carteles oficiales de @fight2one) */
+const VELADAS=[[1,'2023-03-18','Pancho Camurria'],[2,'2023-05-13','Pancho Camurria'],[3,'2023-09-30','Juan Ríos Tejera'],[4,'2023-11-18','Pancho Camurria'],
+  [5,'2024-03-16','Santiago Martín'],[6,'2024-06-01','Juan Ríos Tejera'],[7,null,''],[8,'2025-02-08','Juan Ríos Tejera'],[9,'2025-05-30','Santiago Martín'],
+  [10,'2025-09-27','Santiago Martín'],[11,'2026-05-23','Santiago Martín'],[12,'2026-10-17','Quico Cabrera'],[13,'2027-03-13','Santiago Martín'],[14,null,''],[15,null,''],[16,null,'']];
+const CARTELES={12:'img/cartel-12.webp',13:'img/cartel-13.webp'};
+const T0=Date.UTC(2023,0,1), T1=Date.UTC(2028,0,1);
+const posDe=f=>3+94*(Date.parse(f)-T0)/(T1-T0);
+const posVel=v=>{ if(v[1]) return posDe(v[1]); if(v[0]===7) return (posDe('2024-06-01')+posDe('2025-02-08'))/2; return posDe('2027-03-13')+(v[0]-13)*4.5; };
+const TXV={ es:{vel:'Velada',hecha:'Celebrada',prox:'Próxima',falta:n=>`faltan ${n} días`,anunciar:'Por anunciar',sinFecha:'Fecha por confirmar',pronto:'Próximamente',res:'Ver resultados',avis:'Avísame',pab:'Pabellón',hoy:'Hoy'},
+  en:{vel:'Fight night',hecha:'Done',prox:'Next',falta:n=>`${n} days to go`,anunciar:'To be announced',sinFecha:'Date to be confirmed',pronto:'Coming soon',res:'See results',avis:'Notify me',pab:'Pabellón',hoy:'Today'} };
+let VSEL=13;
+function fechaLarga(f){ const d=new Date(f+'T12:00:00'); return d.toLocaleDateString(LANG==='en'?'en-GB':'es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'}); }
+function pintarRiel(){ const r=$('#riel'), t=TXV[LANG], hoyP=Math.min(97,posDe(new Date().toISOString().slice(0,10)));
+  r.innerHTML=`<span class="hecho" style="width:${94}%;transform:scaleX(${(hoyP-3)/94})"></span>`+[2023,2024,2025,2026,2027].map(a=>`<span class="anio" style="left:${posDe(a+'-07-01')}%">${a}</span>`).join('')+
+    `<span class="hoy" style="left:${hoyP}%">${t.hoy}</span>`+
+    VELADAS.map((v,k)=>{ const fut=v[0]>13, prox=v[0]===13; const alto=(v[0]===2||v[0]===4||v[0]===6)?' alto':''; return `<button class="nodo${fut?' fut':''}${prox?' sig':''}${alto}" role="tab" aria-selected="${v[0]===VSEL}" data-n="${v[0]}" style="left:${posVel(v)}%" aria-label="F2ONE ${v[0]}">${v[0]}</button>`; }).join('');
+  $$('#riel .nodo').forEach(b=>{ b.onclick=()=>verVelada(+b.dataset.n,true); if(matchMedia('(hover:hover)').matches) b.onmouseenter=()=>verVelada(+b.dataset.n); });
+}
+function verVelada(n,centrar){ VSEL=n; const v=VELADAS.find(x=>x[0]===n), t=TXV[LANG], fut=n>13, prox=n===13;
+  const dias=prox?Math.max(0,Math.ceil((VELADA-Date.now())/86400000)):0;
+  const estado=fut?`<span class="vel-estado">${t.anunciar}</span>`:prox?`<span class="vel-estado sig"><i></i>${t.prox} · ${t.falta(dias)}</span>`:`<span class="vel-estado">${t.hecha}</span>`;
+  const accion=n===12?`<a class="btn btn-lin" href="#cartel">${t.res}</a>`:prox?`<a class="btn btn-oro" href="#grada">${t.avis}</a>`:'';
+  $('#vel-tx').innerHTML=`<span class="eti">${t.vel}</span><b class="vel-num${prox?' oro':fut?' gris':''}"><small>F2ONE</small>${n}</b><p class="vel-fecha">${v[1]?fechaLarga(v[1]):fut?t.pronto:t.sinFecha}</p><p class="vel-lugar">${v[2]?t.pab+' '+v[2]+' · Tenerife':'Tenerife'}</p>${estado}${accion}`;
+  const c=$('#vel-cartel'); c.innerHTML=''; c.style.backgroundImage=CARTELES[n]?`url('${CARTELES[n]}')`:''; if(CARTELES[n]){ c.innerHTML='<i></i>'; c.style.animation='none'; void c.offsetWidth; c.style.animation=''; }
+  const fo=$('#vel-fondo'); fo.style.backgroundImage=`url('${CARTELES[n]||'img/ig-patada-alta.webp'}')`; fo.classList.toggle('gris',!CARTELES[n]);
+  $$('#riel .nodo').forEach(b=>b.setAttribute('aria-selected',+b.dataset.n===n));
+  const k=VELADAS.findIndex(x=>x[0]===n); $('#vel-ant').disabled=k===0; $('#vel-sig').disabled=k===VELADAS.length-1;
+  if(centrar){ const b=$(`#riel .nodo[data-n="${n}"]`), caja=$('#riel-caja'); if(b&&caja.scrollWidth>caja.clientWidth) caja.scrollTo({left:b.offsetLeft-caja.clientWidth/2,behavior:'smooth'}); }
+}
+const pasoVel=d=>{ const k=VELADAS.findIndex(x=>x[0]===VSEL)+d; if(VELADAS[k]) verVelada(VELADAS[k][0],true); };
+$('#vel-ant').onclick=()=>pasoVel(-1); $('#vel-sig').onclick=()=>pasoVel(1);
+$('#riel').addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ pasoVel(1); e.preventDefault(); $(`#riel .nodo[data-n="${VSEL}"]`).focus(); } if(e.key==='ArrowLeft'){ pasoVel(-1); e.preventDefault(); $(`#riel .nodo[data-n="${VSEL}"]`).focus(); } });
+pintarRiel(); verVelada(13,true);
+
 /* Cambio de idioma */
 const META={ es:{t:'Fight2One · Veladas de MMA, Muay Thai y K1 en Tenerife',d:'Fight2One, las veladas de MMA, Muay Thai y K1 de Tenerife. F2ONE 13 el sábado 13 de marzo. Apúntate y te avisamos en cuanto salgan las entradas.'},
   en:{t:'Fight2One · MMA, Muay Thai and K1 fight nights in Tenerife',d:'Fight2One, the MMA, Muay Thai and K1 fight nights in Tenerife. F2ONE 13 on Saturday 13 March. Sign up and we’ll tell you when tickets go on sale.'} };
@@ -593,7 +659,7 @@ function ponIdioma(l){ LANG=l; document.documentElement.lang=l;
   $$('[data-en-ph]').forEach(el=>{ if(el.dataset.esPh==null) el.dataset.esPh=el.placeholder; el.placeholder=l==='en'?el.dataset.enPh:el.dataset.esPh; });
   document.title=META[l].t; $('meta[name=description]').setAttribute('content',META[l].d);
   const b=$('#idioma'); b.textContent=tx().boton; b.setAttribute('aria-label',tx().otro);
-  pintarCombates(); pintarCompartir(); $$('.capta-ok').forEach(o=>o.innerHTML=tx().ok);
+  pintarCombates(); pintarCompartir(); pintarRiel(); verVelada(VSEL); $$('.capta-ok').forEach(o=>o.innerHTML=tx().ok);
   $$('.cartel .pelea').forEach(el=>el.classList.add('in')); }
 $('#idioma').onclick=()=>{ ponIdioma(LANG==='en'?'es':'en'); guarda('f2o_lang',LANG); };
 if(LANG==='en') ponIdioma('en');
