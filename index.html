@@ -160,7 +160,7 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 .pelea.estelar{padding:30px 0}
 .pelea.estelar .hx{width:110px;height:110px}
 .pelea.estelar .esq b{font-size:clamp(24px,3.2vw,44px)}
-@media(max-width:620px){.pelea{grid-template-columns:1fr 64px 1fr;gap:8px}.esq,.esq.b{flex-direction:column;align-items:flex-start;gap:8px}.esq.b{align-items:flex-end}.hx{width:52px;height:52px}.pelea.estelar .hx{width:72px;height:72px}.esq b,.pelea.estelar .esq b{font-size:17px}.mid em{font-size:10.5px}}
+@media(max-width:620px){.pelea{grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);gap:8px}.esq b{overflow-wrap:anywhere}.esq,.esq.b{flex-direction:column;align-items:flex-start;gap:8px}.esq.b{align-items:flex-end}.hx{width:52px;height:52px}.pelea.estelar .hx{width:72px;height:72px}.esq b,.pelea.estelar .esq b{font-size:17px}.mid em{font-size:10.5px}}
 .nota-pub{color:var(--gris2);font-size:13px;margin-top:16px}
 
 /* Grand Prix */
@@ -239,7 +239,8 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 @keyframes onda{from{opacity:.9;transform:scale(.8)}to{opacity:0;transform:scale(1.5)}}
 .nodo[aria-selected=true]{transform:translate(-50%,-50%) scale(1.35);background:var(--oro);border-color:var(--oro);color:#000;border-style:solid}
 .nodo.alto{top:42px}.nodo.bajo{top:108px}
-@media(max-width:760px){.vel{grid-template-columns:1fr;min-height:0;padding-bottom:76px}.vel-cartel{display:none}.vel-flechas{left:16px;right:auto}}
+@media(max-width:760px){.vel{grid-template-columns:1fr;min-height:0;padding-bottom:76px}.vel-cartel{display:block;order:-1;width:min(64vw,250px);margin:0 auto 8px;animation-name:velCartelM}
+@keyframes velCartelM{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}.vel-flechas{left:16px;right:auto}}
 /* Temporada */
 .temporada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
 .temporada li{padding:18px 14px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
@@ -410,7 +411,7 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 
 <section class="sec" id="grandprix" aria-labelledby="h-gp" style="padding-top:0">
   <div class="wrap gp">
-    <figure class="campeon foto-rv"><img src="img/gp-final.webp" alt="Eduardo Catalin en la final del Grand Prix de K1 contra Mohamed Echchad" width="720" height="1280" loading="lazy" style="object-position:50% 40%"><figcaption><span class="eti" data-en="Champion">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
+    <figure class="campeon foto-rv"><video data-src="vid/catalin-final.mp4" poster="vid/catalin-final.webp" muted loop playsinline preload="none" aria-label="Eduardo Catalin gana la final del Grand Prix de K1 contra Mohamed Echchad" style="width:100%;height:100%;object-fit:cover;object-position:50% 35%"></video><figcaption><span class="eti" data-en="Champion">Campeón</span><b class="cond">Eduardo<br>Catalin</b></figcaption></figure>
     <div>
       <span class="eti">Grand Prix K1</span>
       <h2 class="cond" id="h-gp" style="font-size:clamp(46px,7vw,104px);margin:10px 0 16px" data-en="Four<br>fighters,<br>one night">Cuatro<br>peleadores,<br>una noche</h2>
