@@ -191,6 +191,16 @@ section.sec{padding:clamp(72px,10vw,130px) 0}
 .vel{position:relative;isolation:isolate;overflow:hidden;min-height:440px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:clamp(28px,4vw,54px);background:#050505;border:1px solid var(--linea)}
 .vel-fondo{position:absolute;inset:-30px;z-index:-1;background:center/cover no-repeat;filter:blur(26px) saturate(1.1) brightness(.35);transform:scale(1.1);transition:background-image .5s,opacity .5s}
 .vel-fondo.gris{filter:grayscale(1) brightness(.22) blur(2px)}
+/* Velada por anunciar: fondo y cartel diseñados, sin foto */
+.vel-fondo.futuro{inset:0;transform:none;filter:none;background:radial-gradient(ellipse 50% 70% at 78% 50%,rgba(212,167,44,.16),transparent 70%),repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 22px),#050505}
+.cartel-futuro{position:relative;width:100%;height:100%;overflow:hidden;background:linear-gradient(160deg,#141210,#060606 60%);border:1px solid rgba(212,167,44,.55);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px 14px 20px;text-align:center}
+.cartel-futuro::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(212,167,44,.07) 0 10px,transparent 10px 20px);mask:linear-gradient(180deg,transparent 30%,#000 60%,transparent 90%)}
+.cartel-futuro img{width:44px;height:44px;position:relative}
+.cartel-futuro .cf-sup{position:relative;font-size:9px;font-weight:800;letter-spacing:.3em;color:var(--gris)}
+.cartel-futuro .cf-num{position:relative;font-stretch:75%;font-weight:900;font-size:clamp(90px,10vw,140px);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--oro)}
+.cartel-futuro .cf-candado{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--oro);color:#000}
+.cartel-futuro .cf-pie{position:relative;font-stretch:75%;font-weight:900;font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+.cartel-futuro .cf-pie small{display:block;margin-top:4px;font-stretch:100%;font-size:10px;font-weight:700;letter-spacing:.24em;color:var(--gris)}
 .vel-tx{position:relative}
 .vel-tx>*{animation:velIn .55s cubic-bezier(.2,.8,.2,1) both}
 .vel-tx>*:nth-child(2){animation-delay:.05s}.vel-tx>*:nth-child(3){animation-delay:.1s}.vel-tx>*:nth-child(4){animation-delay:.15s}.vel-tx>*:nth-child(5){animation-delay:.2s}
@@ -640,8 +650,11 @@ function verVelada(n,centrar){ VSEL=n; const v=VELADAS.find(x=>x[0]===n), t=TXV[
   const estado=fut?`<span class="vel-estado">${t.anunciar}</span>`:prox?`<span class="vel-estado sig"><i></i>${t.prox} · ${t.falta(dias)}</span>`:`<span class="vel-estado">${t.hecha}</span>`;
   const accion=n===12?`<a class="btn btn-lin" href="#cartel">${t.res}</a>`:prox?`<a class="btn btn-oro" href="#grada">${t.avis}</a>`:'';
   $('#vel-tx').innerHTML=`<span class="eti">${t.vel}</span><b class="vel-num${prox?' oro':fut?' gris':''}"><small>F2ONE</small>${n}</b><p class="vel-fecha">${v[1]?fechaLarga(v[1]):fut?t.pronto:t.sinFecha}</p><p class="vel-lugar">${v[2]?t.pab+' '+v[2]+' · Tenerife':'Tenerife'}</p>${estado}${accion}`;
-  const c=$('#vel-cartel'); c.innerHTML=''; c.style.backgroundImage=CARTELES[n]?`url('${CARTELES[n]}')`:''; if(CARTELES[n]){ c.innerHTML='<i></i>'; c.style.animation='none'; void c.offsetWidth; c.style.animation=''; }
-  const fo=$('#vel-fondo'); fo.style.backgroundImage=`url('${CARTELES[n]||'img/ig-patada-alta.webp'}')`; fo.classList.toggle('gris',!CARTELES[n]);
+  const c=$('#vel-cartel'); c.innerHTML=''; c.style.backgroundImage=CARTELES[n]?`url('${CARTELES[n]}')`:'';
+  if(fut) c.innerHTML=`<div class="cartel-futuro"><span class="cf-sup">FIGHT TO BE THE NUMBER ONE</span><img src="img/logo.webp" alt=""><b class="cf-num">${n}</b><span class="cf-candado"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span class="cf-pie">F2ONE ${n}<small>${t.anunciar.toUpperCase()}</small></span></div>`;
+  else if(CARTELES[n]) c.innerHTML='<i></i>';
+  if(c.innerHTML){ c.style.animation='none'; void c.offsetWidth; c.style.animation=''; }
+  const fo=$('#vel-fondo'); fo.classList.toggle('futuro',fut); fo.style.backgroundImage=fut?'':`url('${CARTELES[n]||'img/ig-patada-alta.webp'}')`; fo.classList.toggle('gris',!fut&&!CARTELES[n]);
   $$('#riel .nodo').forEach(b=>b.setAttribute('aria-selected',+b.dataset.n===n));
   const k=VELADAS.findIndex(x=>x[0]===n); $('#vel-ant').disabled=k===0; $('#vel-sig').disabled=k===VELADAS.length-1;
   if(centrar){ const b=$(`#riel .nodo[data-n="${n}"]`), caja=$('#riel-caja'); if(b&&caja.scrollWidth>caja.clientWidth) caja.scrollTo({left:b.offsetLeft-caja.clientWidth/2,behavior:'smooth'}); }
