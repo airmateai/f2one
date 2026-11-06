@@ -22,7 +22,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* ── Fight2One · la web como la noche de la velada ──────────────
-   Negro, oro del logo y un foco que sigue al visitante.
+   Negro, oro del logo, cuenta atrás y carteles de vídeo.
    Archivo ancho (125) para gritar, estrecho (62) para cifras, normal para leer. */
 :root{
   --bg:#050505;--bg2:#0d0c0b;--bg3:#161412;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);
@@ -73,25 +73,60 @@ a{color:inherit}
 @media(max-width:900px){.nav nav{display:none}}
 @media(max-width:760px){.nav .btn{display:none}}
 
-/* ── 1 · Héroe con foco ── */
-.heroe{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 calc(64px + env(safe-area-inset-bottom));overflow:hidden;isolation:isolate}
-.tri{position:absolute;inset:0;z-index:-2;display:grid;grid-template-columns:repeat(3,1fr)}
-.tri div{position:relative;overflow:hidden}
-.tri img,.tri video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
-@media(max-width:760px){.tri{grid-template-columns:1fr}.tri div+div{display:none}}
-.foco{position:absolute;inset:0;z-index:-1;--x:50%;--y:40%;background:radial-gradient(circle at var(--x) var(--y),rgba(0,0,0,0) 0,rgba(0,0,0,.25) 14rem,rgba(0,0,0,.88) 34rem),linear-gradient(0deg,#050505 0,rgba(5,5,5,.2) 45%,transparent 70%)}
-.heroe h2{font-size:clamp(44px,min(8.4vw,11svh),150px);margin:18px 0 0}
-.heroe h2 span{display:block}
+/* ── 1 · Héroe: cartel de velada con cuenta atrás ── */
+.heroe{position:relative;min-height:100svh;display:flex;align-items:center;padding:110px 0 calc(70px + env(safe-area-inset-bottom));overflow:hidden;isolation:isolate;background:#050505}
+.heroe-fondo{position:absolute;inset:0;z-index:-3;background:url(img/amb-jaula.webp) center/cover;opacity:.18;filter:grayscale(.6) contrast(1.2);transform:scale(1.05)}
+.heroe::before{content:'';position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse 60% 70% at 78% 45%,rgba(212,167,44,.28),transparent 65%),radial-gradient(ellipse 40% 50% at 10% 100%,rgba(227,38,47,.16),transparent 70%),linear-gradient(90deg,#050505 0,rgba(5,5,5,.85) 40%,rgba(5,5,5,.3) 100%)}
+.heroe::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.heroe-g{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(24px,4vw,64px);align-items:center}
+.heroe h2{font-size:clamp(34px,4.6vw,86px);margin:20px 0 0}
+.heroe h2 span{display:block;white-space:nowrap}
 .heroe h2 .oro{background:linear-gradient(180deg,var(--gold2),var(--gold) 60%,#8a6a14);-webkit-background-clip:text;background-clip:text;color:transparent}
-.heroe .lead{max-width:560px;color:var(--ink2);font-size:clamp(16px,1.6vw,19px);margin:22px 0 30px}
+.heroe .lead{max-width:540px;color:var(--ink2);font-size:clamp(16px,1.4vw,19px);margin:20px 0 26px}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.chip-prox{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(0,0,0,.55);box-shadow:inset 0 0 0 1px var(--line2);font-size:13px;font-weight:700;color:var(--ink2)}
+.chip-prox{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(227,38,47,.12);box-shadow:inset 0 0 0 1px rgba(227,38,47,.45);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#ffd5d5}
 .chip-prox i{width:9px;height:9px;border-radius:50%;background:var(--rojo);box-shadow:0 0 12px var(--rojo);animation:lat 1.2s infinite}
 @keyframes lat{50%{opacity:.35}}
+/* Reloj de combate */
+.reloj{display:flex;gap:clamp(6px,1vw,12px);margin:0 0 26px}
+.reloj div{flex:0 1 112px;min-width:0;padding:12px 6px 10px;border-radius:14px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px rgba(212,167,44,.35),inset 0 -18px 30px -20px rgba(212,167,44,.4)}
+.reloj b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(38px,4.6vw,66px);line-height:.95;color:var(--ink);font-variant-numeric:tabular-nums}
+.reloj div:first-child b{color:var(--gold2)}
+.reloj small{display:block;margin-top:6px;font-size:10.5px;font-weight:800;letter-spacing:.26em;color:var(--mut);text-transform:uppercase}
+.reloj-tit{display:flex;align-items:baseline;gap:12px;margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
+.reloj-tit b{color:var(--gold);letter-spacing:.24em}
+/* Carteles de vídeo */
+.carteles{position:relative;height:min(78svh,700px);display:flex;justify-content:center;align-items:center}
+.cv{position:absolute;width:64%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 40px 80px -30px #000,inset 0 0 0 1px rgba(255,255,255,.08);transition:transform 1.2s var(--ease)}
+.cv img,.cv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.cv::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.65),transparent 45%);pointer-events:none}
+.cv span{position:absolute;z-index:2;left:14px;bottom:12px;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.02em}
+.cv.c1{transform:translateX(-48%) rotate(-7deg) scale(.86);filter:brightness(.7)}
+.cv.c3{transform:translateX(48%) rotate(7deg) scale(.86);filter:brightness(.7)}
+.cv.c2{z-index:2;width:76%;box-shadow:0 50px 100px -30px #000,0 0 0 2px var(--gold),0 0 60px -10px rgba(212,167,44,.6)}
+.cv.c2 em{position:absolute;z-index:2;top:12px;left:12px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:6px;background:var(--rojo);color:#fff;font-style:normal;font-size:11px;font-weight:900;letter-spacing:.14em}
+.cv.c2 em::before{content:'';width:7px;height:7px;border-radius:50%;background:#fff;animation:lat 1.2s infinite}
 .baja{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:var(--mut);text-transform:uppercase;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:8px}
 .baja::after{content:'';width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:baja 1.8s infinite}
 @keyframes baja{from{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}to{transform:scaleY(0);transform-origin:bottom}}
-@media(max-width:760px){.baja{display:none}}
+/* Móvil: el vídeo central a pantalla completa detrás del texto */
+@media(max-width:900px){
+  .heroe{align-items:flex-end}
+  .heroe-g{grid-template-columns:1fr}
+  .carteles{position:absolute;inset:0;height:auto;z-index:-2}
+  .cv.c1,.cv.c3{display:none}
+  .cv.c2{inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none;transform:none}
+  .cv.c2 span{display:none}
+  .cv.c2::after{background:linear-gradient(0deg,#050505 32%,rgba(5,5,5,.55) 62%,rgba(5,5,5,.35))}
+  .heroe::before{background:radial-gradient(ellipse 80% 40% at 50% 100%,rgba(212,167,44,.18),transparent 70%)}
+  .heroe-fondo{display:none}
+  .baja{display:none}
+  .reloj div{flex:1}
+  .heroe-g>div{min-width:0}
+  .heroe h2{font-size:clamp(38px,11.5vw,72px)}
+  .heroe h2 span{white-space:normal}
+  .cv.c2 em{display:none}
+}
 
 /* ── 2 · El paseíllo (scroll) ── */
 .paseo{position:relative;height:500vh;background:#000}
@@ -256,11 +291,20 @@ footer nav a:first-child{margin-left:0}
 .capta-ok span{display:block;font-size:13.5px;font-weight:500;color:var(--ink2);margin-top:4px}
 .ver-12{display:inline-block;margin-top:18px;color:var(--ink2);font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:2px}
 @media(max-width:520px){.capta{flex-direction:column;border-radius:22px}.capta input{text-align:center}.capta .btn{width:100%}}
-/* Pruebas reales bajo el héroe */
-.pruebas{background:#000;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.pruebas ul{list-style:none;margin:0;padding:18px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px}
-.pruebas li{display:flex;align-items:baseline;gap:8px;color:var(--mut);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.pruebas b{font-stretch:125%;font-weight:900;font-size:22px;color:var(--gold2);letter-spacing:0}
+/* Cinta y cifras bajo el héroe */
+.cinta-caja{overflow:hidden;padding:24px 0;margin:-38px 0 -24px;position:relative;z-index:3}
+.cinta{overflow:hidden;background:var(--gold);color:#140f02;transform:rotate(-1.2deg) scale(1.02);box-shadow:0 20px 40px -20px rgba(212,167,44,.6)}
+.cinta div{display:flex;width:max-content;animation:cinta 28s linear infinite}
+.cinta span{flex:none;padding:12px 0;font-stretch:125%;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+@keyframes cinta{to{transform:translateX(-50%)}}
+.pruebas{position:relative;background:radial-gradient(ellipse at 50% 0,rgba(212,167,44,.1),transparent 60%),#000;padding:clamp(56px,8vw,100px) 0 clamp(40px,6vw,80px)}
+.pruebas ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.pruebas li{position:relative;padding:8px clamp(10px,2vw,28px);text-align:center}
+.pruebas li+li::before{content:'';position:absolute;left:0;top:12%;bottom:12%;width:1px;background:linear-gradient(transparent,rgba(212,167,44,.5),transparent)}
+.pruebas b{display:block;font-stretch:62%;font-weight:900;font-size:clamp(64px,10vw,150px);line-height:.85;letter-spacing:-.02em;background:linear-gradient(180deg,#fff 0,var(--gold2) 45%,var(--gold) 70%,#7a5c10);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.pruebas span{display:block;margin-top:12px;font-size:clamp(11px,1.1vw,14px);font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2)}
+.pruebas small{display:block;margin-top:4px;font-size:12px;color:var(--mut);font-weight:600}
+@media(max-width:760px){.pruebas ul{grid-template-columns:1fr 1fr;row-gap:36px}.pruebas li:nth-child(3)::before{display:none}}
 /* Cartel bloqueado de la 13 */
 .bloqueado{position:relative;margin:26px 0 30px;border-radius:20px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line2)}
 .bloqueado ol{list-style:none;margin:0;padding:14px;display:grid;gap:10px;filter:blur(3.5px);user-select:none}
@@ -300,35 +344,41 @@ footer nav a:first-child{margin-left:0}
 </header>
 
 <section class="heroe" id="inicio" aria-labelledby="h-heroe">
-  <div class="tri" aria-hidden="true">
-    <div><img src="vid/v1.webp" alt="" width="720" height="1280" fetchpriority="high"><video data-src="vid/v1.mp4" muted loop playsinline preload="none"></video></div>
-    <div><img src="vid/v2.webp" alt="" width="720" height="1280"><video data-src="vid/v2.mp4" muted loop playsinline preload="none"></video></div>
-    <div><img src="vid/v3.webp" alt="" width="720" height="1280"><video data-src="vid/v3.mp4" muted loop playsinline preload="none"></video></div>
-  </div>
-  <div class="foco" id="foco" aria-hidden="true"></div>
-  <div class="wrap">
-    <span class="chip-prox"><i></i><b>F2ONE 13</b> · 13 de marzo · entra en La Grada</span>
-    <h2 class="ancho" id="h-heroe"><span>Fight to be</span><span class="oro">the number one</span></h2>
-    <p class="lead">Las veladas de MMA, Muay Thai y K1 de Tenerife. Peleadores de todo el mundo, títulos en juego y un pabellón entero gritando. Esto no se ve: se vive.</p>
-    <form class="capta js-capta" data-donde="heroe" novalidate>
-      <label class="sr" for="h-email">Tu email</label>
-      <input id="h-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" required>
-      <button class="btn btn-oro" type="submit">Avísame primero</button>
-    </form>
-    <p class="capta-err" role="alert"></p>
-    <p class="micro"><b>Gratis.</b> Solo te escribimos para el cartel, los combates y cuando salgan las entradas. Te das de baja con un clic.</p>
-    <a class="ver-12" href="#cartel">Mira cómo fue la F2ONE 12 ↓</a>
+  <div class="heroe-fondo" aria-hidden="true"></div>
+  <div class="wrap heroe-g">
+    <div>
+      <span class="chip-prox"><i></i>F2ONE 13 · Sábado 13 de marzo</span>
+      <h2 class="ancho" id="h-heroe"><span>Fight to be</span><span class="oro">the number one</span></h2>
+      <p class="lead">Las veladas de MMA, Muay Thai y K1 de Tenerife. Peleadores de todo el mundo, títulos en juego y un pabellón entero gritando.</p>
+      <p class="reloj-tit">Cuenta atrás <b>F2ONE 13</b></p>
+      <div class="reloj" id="reloj" role="timer" aria-label="Tiempo que falta para la F2ONE 13">
+        <div><b id="r-d">--</b><small>Días</small></div><div><b id="r-h">--</b><small>Horas</small></div><div><b id="r-m">--</b><small>Min</small></div><div><b id="r-s">--</b><small>Seg</small></div>
+      </div>
+      <form class="capta js-capta" data-donde="heroe" novalidate>
+        <label class="sr" for="h-email">Tu email</label>
+        <input id="h-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Tu email" required>
+        <button class="btn btn-oro" type="submit">Avísame primero</button>
+      </form>
+      <p class="capta-err" role="alert"></p>
+      <p class="micro"><b>Gratis.</b> Te avisamos del cartel y del día que salen las entradas. Te das de baja con un clic.</p>
+    </div>
+    <div class="carteles" aria-hidden="true">
+      <div class="cv c1"><img src="vid/v2.webp" alt="" width="720" height="1280"><video data-src="vid/v2.mp4" muted loop playsinline preload="none"></video><span>K1</span></div>
+      <div class="cv c3"><img src="vid/v3.webp" alt="" width="720" height="1280"><video data-src="vid/v3.mp4" muted loop playsinline preload="none"></video><span>Muay Thai</span></div>
+      <div class="cv c2"><img src="vid/v1.webp" alt="" width="720" height="1280" fetchpriority="high"><video data-src="vid/v1.mp4" muted loop playsinline preload="none"></video><em>F2ONE 12</em><span>MMA</span></div>
+    </div>
   </div>
   <span class="baja" aria-hidden="true">Baja</span>
 </section>
 
 <main id="main">
+<div class="cinta-caja" aria-hidden="true"><div class="cinta"><div><span>MMA ✦ Muay Thai ✦ K1 ✦ Títulos mundiales ✦ Tenerife ✦ F2ONE 13 · 13.03 ✦&nbsp;</span><span>MMA ✦ Muay Thai ✦ K1 ✦ Títulos mundiales ✦ Tenerife ✦ F2ONE 13 · 13.03 ✦&nbsp;</span></div></div></div>
 <section class="pruebas" aria-label="Fight2One en cifras">
   <ul class="wrap">
-    <li><b>12</b>veladas</li>
-    <li><b>9</b>países en la F2ONE 12</li>
-    <li><b>11k</b>en Instagram</li>
-    <li>Títulos mundiales en juego</li>
+    <li><b data-n="12">12</b><span>Veladas</span><small>y vamos a por la 13</small></li>
+    <li><b data-n="11">11</b><span>Combates</span><small>en la F2ONE 12</small></li>
+    <li><b data-n="9">9</b><span>Países</span><small>en una sola noche</small></li>
+    <li><b data-n="11" data-suf="K">11K</b><span>En Instagram</span><small>@fight2one</small></li>
   </ul>
 </section>
 <section class="paseo" id="paseo" aria-label="Cómo se vive una velada">
@@ -525,19 +575,23 @@ if(ENTRADAS_URL){ $$('.js-entradas').forEach(a=>{ a.href=ENTRADAS_URL; a.target=
 
 arrancarHeroe();
 
-/* 1 · Héroe: vídeos y foco que sigue al dedo/ratón */
-function arrancarHeroe(){ if(RED||AHORRO) return; $$('.tri video').forEach(v=>{ if(v.offsetParent!==null) reproducir(v); }); }
+/* 1 · Héroe: vídeos de los carteles (en móvil solo el central) y cuenta atrás */
+function arrancarHeroe(){ if(RED||AHORRO) return; $$('.cv video').forEach(v=>{ if(getComputedStyle(v.parentNode).display!=='none') reproducir(v); }); }
 function reproducir(v){ if(!v.src) v.src=v.dataset.src; v.addEventListener('playing',()=>{ v.previousElementSibling&&(v.previousElementSibling.style.opacity=0); },{once:true}); v.play().catch(()=>{}); }
-const foco=$('#foco');
-if(!RED){
-  let fx=50,fy=40,tx=50,ty=40,auto=true,t0=performance.now(),raf=0;
-  const mover=e=>{ const r=foco.getBoundingClientRect(); tx=(e.clientX-r.left)/r.width*100; ty=(e.clientY-r.top)/r.height*100; auto=false; };
-  addEventListener('pointermove',mover,{passive:true});
-  const paso=t=>{ if(auto){ const k=(t-t0)/1000; tx=50+Math.sin(k*.6)*28; ty=38+Math.cos(k*.45)*12; }
-    fx+=(tx-fx)*.08; fy+=(ty-fy)*.08; foco.style.setProperty('--x',fx+'%'); foco.style.setProperty('--y',fy+'%');
-    raf=scrollY<innerHeight*1.2?requestAnimationFrame(paso):0; };
-  raf=requestAnimationFrame(paso);
-  addEventListener('scroll',()=>{ if(!raf&&scrollY<innerHeight*1.2) raf=requestAnimationFrame(paso); },{passive:true});
+/* Hasta el día de la velada (00:00 en Canarias, invierno = UTC); cambiar si se confirma la hora */
+const VELADA=Date.UTC(2027,2,13,0,0,0);
+const dos=n=>String(n).padStart(2,'0');
+function pintarReloj(){ let t=Math.max(0,VELADA-Date.now())/1000;
+  const d=Math.floor(t/86400); t-=d*86400; const h=Math.floor(t/3600); t-=h*3600; const m=Math.floor(t/60), sg=Math.floor(t-m*60);
+  $('#r-d').textContent=d; $('#r-h').textContent=dos(h); $('#r-m').textContent=dos(m); $('#r-s').textContent=dos(sg); }
+pintarReloj(); setInterval(pintarReloj,1000);
+/* Cifras que cuentan al aparecer */
+const cifras=$$('.pruebas b[data-n]');
+if('IntersectionObserver' in window&&!RED){
+  cifras.forEach(b=>b.textContent='0'+(b.dataset.suf||''));
+  const co=new IntersectionObserver(es=>es.forEach(en=>{ if(!en.isIntersecting) return; co.unobserve(en.target); const b=en.target, n=+b.dataset.n, suf=b.dataset.suf||'', t0=performance.now();
+    const paso=t=>{ const k=Math.min(1,(t-t0)/1400), e=1-Math.pow(1-k,3); b.textContent=Math.round(n*e)+suf; if(k<1) requestAnimationFrame(paso); }; requestAnimationFrame(paso); }),{threshold:.5});
+  cifras.forEach(b=>co.observe(b));
 }
 
 /* 2 · El paseíllo: las frases avanzan con el scroll, como los asaltos */
