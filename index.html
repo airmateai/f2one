@@ -63,8 +63,8 @@ a{color:inherit}
 @media(max-width:600px){.nav .btn{display:none}}
 
 /* Héroe */
-.heroe{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 clamp(40px,7vh,80px);isolation:isolate;background:#000}
-.heroe-media{position:absolute;inset:0;z-index:-1}
+.heroe{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 clamp(40px,7vh,80px);isolation:isolate;background:#000}
+.heroe-media{position:absolute;inset:0;z-index:-1;overflow:hidden}
 .heroe-media img,.heroe-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .heroe-media img{object-position:50% 30%}
 .heroe-media video{display:none}
@@ -258,7 +258,6 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 .nav nav a{position:relative}
 .nav nav a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--oro);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .nav nav a:hover::after{transform:scaleX(1)}
-.reloj b.tic{animation:aparece .35s ease-out}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv,.js .cartel .pelea{opacity:1;transform:none}.js .tit-rv .linea>span,.js .cartel .pelea .esq,.js .foto-rv img{transform:none}}
 </style>
 </head>
@@ -481,7 +480,7 @@ const VELADA=Date.UTC(2027,2,13,0,0,0);
 const dos=n=>String(n).padStart(2,'0');
 function pintarReloj(){ let t=Math.max(0,VELADA-Date.now())/1000;
   const d=Math.floor(t/86400); t-=d*86400; const h=Math.floor(t/3600); t-=h*3600; const m=Math.floor(t/60), sg=Math.floor(t-m*60);
-  [['#r-d',String(d)],['#r-h',dos(h)],['#r-m',dos(m)],['#r-s',dos(sg)]].forEach(([id,v])=>{ const b=$(id); if(b.textContent!==v){ b.textContent=v; if(!RED){ b.classList.remove('tic'); void b.offsetWidth; b.classList.add('tic'); } } }); }
+  $('#r-d').textContent=d; $('#r-h').textContent=dos(h); $('#r-m').textContent=dos(m); $('#r-s').textContent=dos(sg); }
 pintarReloj(); setInterval(pintarReloj,1000);
 
 /* Cartel F2ONE 12 (publicado por @fight2one). [país, foto] */
