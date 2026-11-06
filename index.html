@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
-<link rel="preload" as="image" href="img/amb-golpe.webp">
+<link rel="preload" as="image" href="vid/v1.webp">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* Fight2One · cartel de velada: fotos reales a sangre, tipografía condensada, esquinas rectas.
@@ -65,10 +65,11 @@ a{color:inherit}
 /* Héroe */
 .heroe{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 clamp(40px,7vh,80px);isolation:isolate;background:#000}
 .heroe-media{position:absolute;inset:0;z-index:-1;overflow:hidden}
-.heroe-media img,.heroe-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.heroe-media img{object-position:50% 30%}
-.heroe-media video{display:none}
-.heroe-media::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#000 0,rgba(0,0,0,.75) 35%,rgba(0,0,0,.15) 70%,rgba(0,0,0,.45) 100%),linear-gradient(90deg,rgba(0,0,0,.7),transparent 60%)}
+/* Ordenador: muro de cuatro clips verticales de la F2ONE 12. Móvil: un solo clip a pantalla completa */
+.muro{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:#000}
+.muro video{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+.heroe-media video.solo{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.heroe-media::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#000 0,rgba(0,0,0,.8) 38%,rgba(0,0,0,.3) 70%,rgba(0,0,0,.55) 100%),linear-gradient(90deg,rgba(0,0,0,.65),transparent 65%)}
 .heroe h1{margin:14px 0 0;font-size:clamp(84px,15vw,230px)}
 .heroe h1 .o{color:var(--oro)}
 .fecha{display:flex;flex-wrap:wrap;gap:6px 22px;margin:18px 0 0;font-stretch:75%;font-weight:800;font-size:clamp(20px,2.4vw,30px);text-transform:uppercase;letter-spacing:.02em}
@@ -82,8 +83,8 @@ a{color:inherit}
 .alta{max-width:560px;justify-self:end;width:100%}
 .alta p.tit{margin:0 0 10px;font-size:15px;font-weight:700}
 @media(max-width:900px){
-  .heroe-media img{display:none}
-  .heroe-media video{display:block}
+  .muro{display:none}
+  .heroe-media video.solo{display:block}
   .heroe-media::after{background:linear-gradient(0deg,#000 0,rgba(0,0,0,.8) 45%,rgba(0,0,0,.2) 75%,rgba(0,0,0,.5) 100%)}
   .heroe-pie{grid-template-columns:1fr}
   .alta{justify-self:stretch}
@@ -234,7 +235,7 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 @keyframes sube{from{transform:translateY(105%)}to{transform:none}}
 @keyframes aparece{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes acerca{from{transform:scale(1.14)}to{transform:scale(1.02)}}
-.heroe-media img{animation:acerca 9s cubic-bezier(.2,.7,.2,1) both}
+.muro,.heroe-media video.solo{animation:acerca 9s cubic-bezier(.2,.7,.2,1) both}
 .linea{display:block;overflow:hidden;padding-bottom:.04em}
 .linea>span{display:inline-block;animation:sube 1s cubic-bezier(.2,.8,.2,1) both}
 .entra{animation:aparece .8s cubic-bezier(.2,.8,.2,1) both}
@@ -276,8 +277,13 @@ footer .lema{width:100%;margin:0;font-stretch:75%;font-weight:900;text-transform
 
 <section class="heroe" id="inicio" aria-labelledby="h-heroe">
   <div class="heroe-media" aria-hidden="true">
-    <img src="img/amb-golpe.webp" alt="" width="1400" height="934" fetchpriority="high">
-    <video data-src="vid/v1.mp4" poster="vid/v1.webp" muted loop playsinline preload="none"></video>
+    <div class="muro">
+      <video data-src="vid/v1.mp4" poster="vid/v1.webp" muted loop playsinline preload="none"></video>
+      <video data-src="vid/v2.mp4" poster="vid/v2.webp" muted loop playsinline preload="none"></video>
+      <video data-src="vid/v3.mp4" poster="vid/v3.webp" muted loop playsinline preload="none"></video>
+      <video data-src="vid/v5.mp4" poster="vid/v5.webp" muted loop playsinline preload="none"></video>
+    </div>
+    <video class="solo" data-src="vid/v1.mp4" poster="vid/v1.webp" muted loop playsinline preload="none"></video>
   </div>
   <div class="wrap">
     <span class="eti entra" style="animation-delay:.1s">Próxima velada</span>
